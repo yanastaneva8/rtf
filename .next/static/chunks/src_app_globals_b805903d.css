@@ -1,91 +1,32 @@
+@import "https://fonts.googleapis.com/css2?family=Garamond&family=Open+Sans:wght@400;600&display=swap";
 /* [project]/src/app/globals.css [app-client] (css) */
 @layer properties {
   @supports (((-webkit-hyphens: none)) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
     *, :before, :after, ::backdrop {
-      --tw-rotate-x: initial;
-      --tw-rotate-y: initial;
-      --tw-rotate-z: initial;
-      --tw-skew-x: initial;
-      --tw-skew-y: initial;
       --tw-border-style: solid;
-      --tw-tracking: initial;
-      --tw-outline-style: solid;
-      --tw-blur: initial;
-      --tw-brightness: initial;
-      --tw-contrast: initial;
-      --tw-grayscale: initial;
-      --tw-hue-rotate: initial;
-      --tw-invert: initial;
-      --tw-opacity: initial;
-      --tw-saturate: initial;
-      --tw-sepia: initial;
-      --tw-drop-shadow: initial;
-      --tw-drop-shadow-color: initial;
-      --tw-drop-shadow-alpha: 100%;
-      --tw-drop-shadow-size: initial;
-      --tw-backdrop-blur: initial;
-      --tw-backdrop-brightness: initial;
-      --tw-backdrop-contrast: initial;
-      --tw-backdrop-grayscale: initial;
-      --tw-backdrop-hue-rotate: initial;
-      --tw-backdrop-invert: initial;
-      --tw-backdrop-opacity: initial;
-      --tw-backdrop-saturate: initial;
-      --tw-backdrop-sepia: initial;
+      --tw-gradient-position: initial;
+      --tw-gradient-from: #0000;
+      --tw-gradient-via: #0000;
+      --tw-gradient-to: #0000;
+      --tw-gradient-stops: initial;
+      --tw-gradient-via-stops: initial;
+      --tw-gradient-from-position: 0%;
+      --tw-gradient-via-position: 50%;
+      --tw-gradient-to-position: 100%;
+      --tw-duration: initial;
     }
   }
-}
-
-.visible {
-  visibility: visible;
-}
-
-.absolute {
-  position: absolute;
-}
-
-.fixed {
-  position: fixed;
-}
-
-.relative {
-  position: relative;
-}
-
-.static {
-  position: static;
-}
-
-.sticky {
-  position: sticky;
-}
-
-.row-start-2 {
-  grid-row-start: 2;
-}
-
-.row-start-3 {
-  grid-row-start: 3;
-}
-
-.\!container {
-  width: 100% !important;
-}
-
-.container {
-  width: 100%;
 }
 
 .mx-auto {
   margin-inline: auto;
 }
 
-.block {
-  display: block;
-}
-
-.contents {
-  display: contents;
+.line-clamp-3 {
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  overflow: hidden;
 }
 
 .flex {
@@ -96,20 +37,8 @@
   display: grid;
 }
 
-.hidden {
-  display: none;
-}
-
-.inline {
-  display: inline;
-}
-
 .inline-block {
   display: inline-block;
-}
-
-.table {
-  display: table;
 }
 
 .min-h-screen {
@@ -120,32 +49,12 @@
   width: 100%;
 }
 
-.flex-shrink {
-  flex-shrink: 1;
+.cursor-pointer {
+  cursor: pointer;
 }
 
-.border-collapse {
-  border-collapse: collapse;
-}
-
-.transform {
-  transform: var(--tw-rotate-x, ) var(--tw-rotate-y, ) var(--tw-rotate-z, ) var(--tw-skew-x, ) var(--tw-skew-y, );
-}
-
-.resize {
-  resize: both;
-}
-
-.list-inside {
-  list-style-position: inside;
-}
-
-.list-decimal {
-  list-style-type: decimal;
-}
-
-.grid-rows-\[20px_1fr_20px\] {
-  grid-template-rows: 20px 1fr 20px;
+.grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
 }
 
 .flex-col {
@@ -168,147 +77,112 @@
   justify-content: center;
 }
 
-.justify-items-center {
-  justify-items: center;
-}
-
-.gap-\[24px\] {
-  gap: 24px;
-}
-
-.gap-\[32px\] {
-  gap: 32px;
-}
-
-.rounded-full {
-  border-radius: 3.40282e38px;
-}
-
-.border {
-  border-style: var(--tw-border-style);
-  border-width: 1px;
-}
-
 .border-b {
   border-bottom-style: var(--tw-border-style);
   border-bottom-width: 1px;
-}
-
-.border-solid {
-  --tw-border-style: solid;
-  border-style: solid;
 }
 
 .border-\[\#D6A9A9\] {
   border-color: #d6a9a9;
 }
 
-.border-transparent {
-  border-color: #0000;
+.bg-\[\#4f5d41\] {
+  background-color: #4f5d41;
 }
 
-.bg-\[\#DDE8D3\] {
-  background-color: #dde8d3;
+.bg-\[\#6e7f5d\] {
+  background-color: #6e7f5d;
 }
 
-.bg-\[\#F4F8F6\] {
-  background-color: #f4f8f6;
+.bg-\[\#d9c4bb\] {
+  background-color: #d9c4bb;
 }
 
-.bg-\[\#fefcf8\] {
-  background-color: #fefcf8;
+.bg-\[\#f5f5f5\] {
+  background-color: #f5f5f5;
+}
+
+.bg-gradient-to-b {
+  --tw-gradient-position: to bottom in oklab;
+  background-image: linear-gradient(var(--tw-gradient-stops));
+}
+
+.from-\[\#4f5d41\] {
+  --tw-gradient-from: #4f5d41;
+  --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
+}
+
+.from-\[\#cfe8d3\] {
+  --tw-gradient-from: #cfe8d3;
+  --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
+}
+
+.to-\[\#6e7f5d\] {
+  --tw-gradient-to: #6e7f5d;
+  --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
+}
+
+.to-\[\#a8cbb7\] {
+  --tw-gradient-to: #a8cbb7;
+  --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
+}
+
+.object-cover {
+  -o-object-fit: cover;
+  object-fit: cover;
 }
 
 .text-center {
   text-align: center;
 }
 
-.font-\[family-name\:var\(--font-geist-mono\)\] {
-  font-family: var(--font-geist-mono);
-}
-
-.font-\[family-name\:var\(--font-geist-sans\)\] {
-  font-family: var(--font-geist-sans);
-}
-
-.tracking-\[-\.01em\] {
-  --tw-tracking: -.01em;
-  letter-spacing: -.01em;
-}
-
 .text-\[\#0B3D20\] {
   color: #0b3d20;
 }
 
-.text-\[\#1B5E20\] {
-  color: #1b5e20;
+.text-\[\#4f5d41\] {
+  color: #4f5d41;
 }
 
-.text-\[\#6B8E7C\] {
-  color: #6b8e7c;
+.text-\[\#e6d5d0\] {
+  color: #e6d5d0;
 }
 
-.lowercase {
-  text-transform: lowercase;
-}
-
-.uppercase {
-  text-transform: uppercase;
-}
-
-.italic {
-  font-style: italic;
+.text-\[\#f5f5f5\] {
+  color: #f5f5f5;
 }
 
 .underline {
   text-decoration-line: underline;
 }
 
-.antialiased {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.outline {
-  outline-style: var(--tw-outline-style);
-  outline-width: 1px;
-}
-
-.filter {
-  filter: var(--tw-blur, ) var(--tw-brightness, ) var(--tw-contrast, ) var(--tw-grayscale, ) var(--tw-hue-rotate, ) var(--tw-invert, ) var(--tw-saturate, ) var(--tw-sepia, ) var(--tw-drop-shadow, );
-}
-
-.backdrop-filter {
-  backdrop-filter: var(--tw-backdrop-blur, ) var(--tw-backdrop-brightness, ) var(--tw-backdrop-contrast, ) var(--tw-backdrop-grayscale, ) var(--tw-backdrop-hue-rotate, ) var(--tw-backdrop-invert, ) var(--tw-backdrop-opacity, ) var(--tw-backdrop-saturate, ) var(--tw-backdrop-sepia, );
-}
-
-.transition {
-  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter, display, visibility, content-visibility, overlay, pointer-events;
+.transition-shadow {
+  transition-property: box-shadow;
   transition-timing-function: var(--tw-ease, ease);
   transition-duration: var(--tw-duration, 0s);
 }
 
-.transition-colors {
-  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
-  transition-timing-function: var(--tw-ease, ease);
-  transition-duration: var(--tw-duration, 0s);
+.duration-300 {
+  --tw-duration: .3s;
+  transition-duration: .3s;
 }
 
 @media (hover: hover) {
-  .hover\:border-transparent:hover {
-    border-color: #0000;
+  .hover\:border:hover {
+    border-style: var(--tw-border-style);
+    border-width: 1px;
   }
 }
 
 @media (hover: hover) {
-  .hover\:bg-\[\#383838\]:hover {
-    background-color: #383838;
+  .hover\:border-\[\#4f5d41\]:hover {
+    border-color: #4f5d41;
   }
 }
 
 @media (hover: hover) {
-  .hover\:bg-\[\#f2f2f2\]:hover {
-    background-color: #f2f2f2;
+  .hover\:text-\[\#374830\]:hover {
+    color: #374830;
   }
 }
 
@@ -318,64 +192,10 @@
   }
 }
 
-@media (hover: hover) {
-  .hover\:underline-offset-4:hover {
-    text-underline-offset: 4px;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .dark\:invert {
-    --tw-invert: invert(100%);
-    filter: var(--tw-blur, ) var(--tw-brightness, ) var(--tw-contrast, ) var(--tw-grayscale, ) var(--tw-hue-rotate, ) var(--tw-invert, ) var(--tw-saturate, ) var(--tw-sepia, ) var(--tw-drop-shadow, );
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  @media (hover: hover) {
-    .dark\:hover\:bg-\[\#1a1a1a\]:hover {
-      background-color: #1a1a1a;
-    }
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  @media (hover: hover) {
-    .dark\:hover\:bg-\[\#ccc\]:hover {
-      background-color: #ccc;
-    }
-  }
-}
-
 body {
   color: #0b3d20;
   background-color: #f4f8f6;
   font-family: Open Sans, sans-serif;
-}
-
-@property --tw-rotate-x {
-  syntax: "*";
-  inherits: false
-}
-
-@property --tw-rotate-y {
-  syntax: "*";
-  inherits: false
-}
-
-@property --tw-rotate-z {
-  syntax: "*";
-  inherits: false
-}
-
-@property --tw-skew-x {
-  syntax: "*";
-  inherits: false
-}
-
-@property --tw-skew-y {
-  syntax: "*";
-  inherits: false
 }
 
 @property --tw-border-style {
@@ -384,124 +204,58 @@ body {
   initial-value: solid;
 }
 
-@property --tw-tracking {
+@property --tw-gradient-position {
   syntax: "*";
   inherits: false
 }
 
-@property --tw-outline-style {
-  syntax: "*";
+@property --tw-gradient-from {
+  syntax: "<color>";
   inherits: false;
-  initial-value: solid;
+  initial-value: #0000;
 }
 
-@property --tw-blur {
+@property --tw-gradient-via {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #0000;
+}
+
+@property --tw-gradient-to {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #0000;
+}
+
+@property --tw-gradient-stops {
   syntax: "*";
   inherits: false
 }
 
-@property --tw-brightness {
+@property --tw-gradient-via-stops {
   syntax: "*";
   inherits: false
 }
 
-@property --tw-contrast {
-  syntax: "*";
-  inherits: false
+@property --tw-gradient-from-position {
+  syntax: "<length-percentage>";
+  inherits: false;
+  initial-value: 0%;
 }
 
-@property --tw-grayscale {
-  syntax: "*";
-  inherits: false
+@property --tw-gradient-via-position {
+  syntax: "<length-percentage>";
+  inherits: false;
+  initial-value: 50%;
 }
 
-@property --tw-hue-rotate {
-  syntax: "*";
-  inherits: false
-}
-
-@property --tw-invert {
-  syntax: "*";
-  inherits: false
-}
-
-@property --tw-opacity {
-  syntax: "*";
-  inherits: false
-}
-
-@property --tw-saturate {
-  syntax: "*";
-  inherits: false
-}
-
-@property --tw-sepia {
-  syntax: "*";
-  inherits: false
-}
-
-@property --tw-drop-shadow {
-  syntax: "*";
-  inherits: false
-}
-
-@property --tw-drop-shadow-color {
-  syntax: "*";
-  inherits: false
-}
-
-@property --tw-drop-shadow-alpha {
-  syntax: "<percentage>";
+@property --tw-gradient-to-position {
+  syntax: "<length-percentage>";
   inherits: false;
   initial-value: 100%;
 }
 
-@property --tw-drop-shadow-size {
-  syntax: "*";
-  inherits: false
-}
-
-@property --tw-backdrop-blur {
-  syntax: "*";
-  inherits: false
-}
-
-@property --tw-backdrop-brightness {
-  syntax: "*";
-  inherits: false
-}
-
-@property --tw-backdrop-contrast {
-  syntax: "*";
-  inherits: false
-}
-
-@property --tw-backdrop-grayscale {
-  syntax: "*";
-  inherits: false
-}
-
-@property --tw-backdrop-hue-rotate {
-  syntax: "*";
-  inherits: false
-}
-
-@property --tw-backdrop-invert {
-  syntax: "*";
-  inherits: false
-}
-
-@property --tw-backdrop-opacity {
-  syntax: "*";
-  inherits: false
-}
-
-@property --tw-backdrop-saturate {
-  syntax: "*";
-  inherits: false
-}
-
-@property --tw-backdrop-sepia {
+@property --tw-duration {
   syntax: "*";
   inherits: false
 }

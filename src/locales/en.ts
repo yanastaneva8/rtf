@@ -1,0 +1,22 @@
+export const en = {
+    heroTitle: "Roots to Fruits",
+    heroSubtitle: "A space for nurturing life — from conception to postpartum, rooted in nature and backed by science.",
+    aboutTitle: "About Us",
+    aboutParagraph1: "We are two friends — passionate about real food, conscious parenting, and living in rhythm with nature.",
+    aboutParagraph2: "Every article, guide, and gathering is rooted in compassion and backed by credible science.",
+    blogTitle: "Latest Blog Posts",
+    blogComingSoon: "Stay tuned for our first reflections and research-backed posts.",
+    eventsTitle: "Workshops & Women Circles",
+    eventsIntro: "Join our upcoming gatherings to connect, learn and share in a safe, natural space.",
+    event1: "Cycle Wisdom Circle",
+    event2: "Preparing the Body for Conception",
+    enroll: "Enroll",
+    resourcesTitle: "Resources & Guides",
+    resourcesIntro: "We’ll be offering both free and in-depth paid guides — crafted with care and solid research.",
+    resource1: "Free: Foundational Foods for Fertility",
+    resource2: "Paid: Pregnancy Nourishment Guide",
+    download: "Download PDF",
+    buy: "Buy PDF",
+    contactTitle: "Contact",
+  };
+  
