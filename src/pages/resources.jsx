@@ -83,8 +83,8 @@ export default function Resources() {
               </div>
             </Container>
       <SimpleLayout
-        title={t.resources.books}
-        intro={t.resources.books_description}
+        title={t.resources.general}
+        intro={t.resources.general_description}
       >
         <ul
           role="list"
@@ -114,8 +114,8 @@ export default function Resources() {
       </SimpleLayout>
 
       <SimpleLayout
-        title={t.resources.podcasts}
-        intro={t.resources.podcasts_description}
+        title={t.resources.preconception}
+        intro={t.resources.preconception_description}
       >
         <ul
           role="list"
@@ -144,8 +144,8 @@ export default function Resources() {
         </ul>
       </SimpleLayout>
  <SimpleLayout
-        title={t.resources.videos}
-        intro={t.resources.videos_description}
+        title={t.resources.pregnancy}
+        intro={t.resources.pregnancy_description}
       >
         <ul
           role="list"
@@ -174,8 +174,8 @@ export default function Resources() {
         </ul>
       </SimpleLayout>
       <SimpleLayout
-        title={t.resources.products}
-        intro={t.resources.products_description}
+        title={t.resources.postpartum}
+        intro={t.resources.postpartum_description}
       >
         <ul
           role="list"

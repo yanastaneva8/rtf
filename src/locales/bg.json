@@ -17,14 +17,26 @@
   },
   "resources": {
     "title": "Ресурси",
-    "description": "Книги, подкасти, продукти.",
-    "books": "Книги",
-    "books_description": "Полезни книги",
-    "podcasts": "Подкасти",
-    "podcasts_description": "Полезни подкасти",
-    "products": "Продукти",
-    "products_description": "Полезни продукти",
-        "videos": "Видеа",
-    "videos_description": "Полезни видеа"
+    "description": "Цялата информация от която се нуждаете.",
+    "general": "Женско здраве",
+    "general_description": "Полезни материали",
+    "preconception": "Периодът преди зачеване",
+    "preconception_description": "Полезни материали",
+    "pregnancy": "Бременност",
+    "pregnancy_description": "Полезни материали",
+    "postpartum": "Следродилен период",
+    "postpartum_description": "Полезни материали"
+  },
+  "speaking": {
+    "title": "Изяви",
+    "description": "Присъствие в медии, гостуване и лекции."
+  },
+    "affiliated": {
+    "title": "Отстъпки",
+    "description": "Връзки."
+  },
+  "events": {
+    "title": "Събития",
+    "description": "Консултации, женски кръгове, семинари."
   }
 }

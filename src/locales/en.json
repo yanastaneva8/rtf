@@ -15,16 +15,28 @@
     "title": "Articles",
     "description": "Our reflections and research-backed posts."
   },
-    "resources": {
+  "resources": {
     "title": "Resources",
-    "description": "Books, podcasts, products.",
-    "books": "Books",
-    "books_description": "Useful books",
-    "podcasts": "Podcasts",
-    "podcasts_description": "Useful podcasts",
-    "products": "Products",
-    "products_description": "Useful products",
-    "videos": "Videos",
-    "videos_description": "Useful videos"
+    "description": "All the info you need.",
+    "general": "Women's health",
+    "general_description": "Useful resources",
+    "preconception": "Preconception",
+    "preconception_description": "Useful resources",
+    "pregnancy": "Pregnancy",
+    "pregnancy_description": "Useful resources",
+    "postpartum": "Postpartum",
+    "postpartum_description": "Useful resources"
+  },
+    "speaking": {
+    "title": "Appearances",
+    "description": "Piblic appearances, speaking, lectures."
+  },
+  "affiliated": {
+    "title": "Affiliated",
+    "description": "Links."
+  },
+  "events": {
+    "title": "Events",
+    "description": "Consultations, women's circles, seminars."
   }
 }

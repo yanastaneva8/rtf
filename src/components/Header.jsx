@@ -174,8 +174,9 @@ function DesktopNavigation(props) {
         <NavItem href="/about">{t.about.title}</NavItem>
         <NavItem href="/articles">{t.articles.title}</NavItem>
         <NavItem href="/resources">{t.resources.title}</NavItem>
-        <NavItem href="/speaking">Speaking</NavItem>
-        <NavItem href="/uses">Uses</NavItem>
+        <NavItem href="/speaking">{t.speaking.title}</NavItem>
+        <NavItem href="/affiliated">{t.affiliated.title}</NavItem>
+        <NavItem href="/events">{t.events.title}</NavItem>
       </ul>
     </nav>
   )
