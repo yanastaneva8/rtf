@@ -1,0 +1,140 @@
+import Head from 'next/head'
+import Image from 'next/image'
+import Link from 'next/link'
+import clsx from 'clsx'
+
+import { Container } from '@/components/Container'
+import {
+  GitHubIcon,
+  InstagramIcon,
+  LinkedInIcon,
+  TwitterIcon,
+} from '@/components/SocialIcons'
+const portraitImage =
+  'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80'
+const image1 =
+  'https://images.unsplash.com/photo-1511140276483-30c1217ca449?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80'
+const image2 =
+  'https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80'
+const image3 =
+  'https://images.unsplash.com/photo-1547043736-b2247cb34b01?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1364&q=80'
+const image4 =
+  'https://images.unsplash.com/photo-1514733072381-980fd06a6128?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80'
+const image5 =
+  'https://images.unsplash.com/photo-1541873676-a18131494184?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1318&q=80'
+import { useTranslation } from '@/utils/useTranslation'
+
+
+function SocialLink({ className, href, children, icon: Icon }) {
+  return (
+    <li className={clsx(className, 'flex')}>
+      <Link
+        href={href}
+        className="group flex text-sm font-medium text-zinc-800 transition hover:text-teal-500 dark:text-zinc-200 dark:hover:text-teal-500"
+      >
+        <Icon className="h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-teal-500" />
+        <span className="ml-4">{children}</span>
+      </Link>
+    </li>
+  )
+}
+
+function MailIcon(props) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" {...props}>
+      <path
+        fillRule="evenodd"
+        d="M6 5a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H6Zm.245 2.187a.75.75 0 0 0-.99 1.126l6.25 5.5a.75.75 0 0 0 .99 0l6.25-5.5a.75.75 0 0 0-.99-1.126L12 12.251 6.245 7.187Z"
+      />
+    </svg>
+  )
+}
+
+function Photos() {
+
+  return (
+    <div className="mt-16 sm:mt-20">
+      <div className="-my-4 flex justify-center gap-3 overflow-hidden py-4 sm:gap-8">
+        {[image1, image2].map((image, imageIndex) => (
+          <div
+            key={imageIndex}
+            className={clsx(
+              'relative aspect-[8/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl',
+            )}
+          >
+            <img
+              src={image}
+              alt=""
+              sizes="(min-width: 640px) 18rem, 11rem"
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+export default function About() {
+  const t = useTranslation()
+  return (
+    <>
+      <Head>
+        <title>{t.about.title}</title>
+        <meta
+          name="description"
+          content={t.about.description}
+        />
+      </Head>
+      <Container className="mt-16 sm:mt-32">
+        <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
+          <div className="lg:pl-20">
+<Photos />
+          </div>
+          <div className="lg:order-first lg:row-span-2">
+            <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
+     {t.about.title}
+            </h1>
+            <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
+              <p>
+                {t.about.p1}
+              </p>
+              <p>
+                {t.about.p2}
+              </p>
+              <p>
+             {t.about.p3}
+              </p>
+              <p>
+                {t.about.p4}
+              </p>
+            </div>
+          </div>
+          <div className="lg:pl-20">
+            <ul role="list">
+              <SocialLink href="#" icon={TwitterIcon}>
+                Follow on Twitter
+              </SocialLink>
+              <SocialLink href="#" icon={InstagramIcon} className="mt-4">
+                Follow on Instagram
+              </SocialLink>
+              <SocialLink href="#" icon={GitHubIcon} className="mt-4">
+                Follow on GitHub
+              </SocialLink>
+              <SocialLink href="#" icon={LinkedInIcon} className="mt-4">
+                Follow on LinkedIn
+              </SocialLink>
+              <SocialLink
+                href="mailto:spencer@planetaria.tech"
+                icon={MailIcon}
+                className="mt-8 border-t border-zinc-100 pt-8 dark:border-zinc-700/40"
+              >
+                spencer@planetaria.tech
+              </SocialLink>
+            </ul>
+          </div>
+        </div>
+      </Container>
+    </>
+  )
+}
