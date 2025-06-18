@@ -21,9 +21,10 @@ function usePrevious(value) {
 }
 
 export default function App({ Component, pageProps, router }) {
-  const { locale = 'en' } = useRouter();
-  const strings = getLocaleStrings(locale);
+  const locale = router?.locale || 'en'
+  const strings = getLocaleStrings(locale)
   let previousPathname = usePrevious(router.pathname)
+
 
   return (
     <>
@@ -33,12 +34,11 @@ export default function App({ Component, pageProps, router }) {
         </div>
       </div>
       <div className="relative">
-        <Header />
-        
-        <main>
-          <Component previousPathname={previousPathname} {...pageProps} />
-        </main>
-        <Footer />
+        <Header locale={locale} />
+      <main>
+        <Component previousPathname={previousPathname} locale={locale} {...pageProps} />
+      </main>
+      <Footer locale={locale} />
       </div>
     </>
   )
