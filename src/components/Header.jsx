@@ -10,7 +10,6 @@ import LanguageSwitcher from './LanguageSwitcher'
 
 import { Container } from '@/components/Container'
 import { useTranslation } from '@/utils/useTranslation'
-import { useRouter } from 'next/router'
 
 const rtfLogo = logo
 
