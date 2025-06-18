@@ -10,6 +10,7 @@ import LanguageSwitcher from './LanguageSwitcher'
 
 import { Container } from '@/components/Container'
 import { useTranslation } from '@/utils/useTranslation'
+import { useRouter } from 'next/router'
 
 const rtfLogo = logo
 
@@ -258,9 +259,13 @@ function Avatar({ large = false, className, ...props }) {
   )
 }
 
-export function Header({ locale }) {
-  let isHomePage = useRouter().pathname === '/'
-
+// export function Header({ locale }) {
+  
+  export function Header({ locale }) {
+    const router = useRouter()
+    const isHomePage = router.pathname === '/'
+  
+    
   let headerRef = useRef()
   let avatarRef = useRef()
   let isInitial = useRef(true)
