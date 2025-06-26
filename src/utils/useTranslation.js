@@ -4,7 +4,7 @@ import bg from '@/locales/bg.json'
 
 const translations = { en, bg }
 
-export function useTranslation() {
+export default function useTranslation() {
   const { locale = 'en' } = useRouter()
   return translations[locale] || en
 }
