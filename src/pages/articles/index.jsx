@@ -5,7 +5,8 @@ import { SimpleLayout } from '@/components/SimpleLayout'
 import { formatDate } from '@/lib/formatDate'
 import { getAllArticles } from '@/lib/getAllArticles'
 
-import { useTranslation } from '../../utils/useTranslation'
+import { useTranslation } from 'next-i18next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 function Article({ article }) {
   return (
@@ -36,20 +37,20 @@ function Article({ article }) {
   )
 }
 
-export default function ArticlesIndex({ articles }) {
-  const t = useTranslation()
+export default function ArticlesIndex({ articles, locale }) {
+      const {t} = useTranslation('common')
   return (
     <>
       <Head>
-        <title>{t.articles.title}</title>
+        <title>{t('articles.title')}</title>
         <meta
           name="description"
-          content={t.articles.description}
+          content={t('articles.description')}
         />
       </Head>
       <SimpleLayout
-        title={t.articles.title}
-        intro={t.articles.description}
+        title={t('articles.title')}
+        intro={t('articles.description')}
       >
         <div className="md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-700/40">
           <div className="flex max-w-3xl flex-col space-y-16">
@@ -63,10 +64,12 @@ export default function ArticlesIndex({ articles }) {
   )
 }
 
-export async function getStaticProps() {
+export async function getStaticProps({ locale }) {
   return {
     props: {
-      articles: (await getAllArticles()).map(({ component, ...meta }) => meta),
+       articles: (await getAllArticles()).map(({ component, ...meta }) => meta),
+      ...(await serverSideTranslations(locale, ['common'])),
+      // ...other props
     },
   }
 }

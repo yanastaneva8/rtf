@@ -10,7 +10,8 @@ import logoCosmos from '@/images/logos/cosmos.svg'
 import logoHelioStream from '@/images/logos/helio-stream.svg'
 import logoOpenShuttle from '@/images/logos/open-shuttle.svg'
 import logoPlanetaria from '@/images/logos/planetaria.svg'
-import { useTranslation } from '@/utils/useTranslation'
+import { useTranslation } from 'next-i18next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 const resources = [
   {
@@ -61,30 +62,30 @@ function LinkIcon(props) {
   )
 }
 
-export default function Resources() {
-  const t = useTranslation()
+export default function Resources({locale}) {
+    const {t} = useTranslation('common')
   return (
     <>
       <Head>
-        <title>{t.resources.title}</title>
+        <title>{t('resources.title')}</title>
         <meta
           name="description"
-          content={t.resources.description}
+          content={t('resources.description')}
         />
       </Head>
       <Container className="mt-16 sm:mt-32">
                 <div className="lg:order-first lg:row-span-2">
                   <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-           {t.resources.title}
+           {t('resources.title')}
                   </h1>
                        <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-           {t.resources.description}
+           {t('resources.description')}
                   </p>   
               </div>
             </Container>
       <SimpleLayout
-        title={t.resources.books}
-        intro={t.resources.books_description}
+        title={t('resources.books')}
+        intro={t('resources.books_description')}
       >
         <ul
           role="list"
@@ -114,8 +115,8 @@ export default function Resources() {
       </SimpleLayout>
 
       <SimpleLayout
-        title={t.resources.podcasts}
-        intro={t.resources.podcasts_description}
+   title={t('resources.podcasts')}
+        intro={t('resources.podcasts_description')}
       >
         <ul
           role="list"
@@ -144,8 +145,8 @@ export default function Resources() {
         </ul>
       </SimpleLayout>
  <SimpleLayout
-        title={t.resources.videos}
-        intro={t.resources.videos_description}
+    title={t('resources.videos')}
+        intro={t('resources.videos_description')}
       >
         <ul
           role="list"
@@ -174,8 +175,8 @@ export default function Resources() {
         </ul>
       </SimpleLayout>
       <SimpleLayout
-        title={t.resources.products}
-        intro={t.resources.products_description}
+   title={t('resources.products')}
+        intro={t('resources.products_description')}
       >
         <ul
           role="list"
@@ -207,4 +208,13 @@ export default function Resources() {
      
     </>
   )
+}
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common'])),
+      // ...other props
+    },
+  }
 }

@@ -1,8 +1,9 @@
 import Head from 'next/head'
 
 import { SimpleLayout } from '@/components/SimpleLayout'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
-export default function ThankYou() {
+export default function ThankYou({locale}) {
   return (
     <>
       <Head>
@@ -18,4 +19,13 @@ export default function ThankYou() {
       />
     </>
   )
+}
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common'])),
+      // ...other props
+    },
+  }
 }

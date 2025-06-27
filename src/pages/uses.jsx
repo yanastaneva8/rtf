@@ -3,6 +3,7 @@ import Head from 'next/head'
 import { Card } from '@/components/Card'
 import { Section } from '@/components/Section'
 import { SimpleLayout } from '@/components/SimpleLayout'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 function ToolsSection({ children, ...props }) {
   return (
@@ -25,7 +26,7 @@ function Tool({ title, href, children }) {
   )
 }
 
-export default function Uses() {
+export default function Uses({locale}) {
   return (
     <>
       <Head>
@@ -116,4 +117,13 @@ export default function Uses() {
       </SimpleLayout>
     </>
   )
+}
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common'])),
+      // ...other props
+    },
+  }
 }

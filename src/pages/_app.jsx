@@ -1,11 +1,10 @@
+import { appWithTranslation } from 'next-i18next'
+import { useRouter } from 'next/router'
+
 import { useEffect, useRef } from 'react'
 
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
-
-import { getLocaleStrings } from '../utils/getLocaleStrings';
-import { useRouter } from 'next/router';
-import LanguageSwitcher from '../components/LanguageSwitcher';
 
 import '@/styles/tailwind.css'
 import 'focus-visible'
@@ -20,9 +19,9 @@ function usePrevious(value) {
   return ref.current
 }
 
-export default function App({ Component, pageProps, router }) {
-  const { locale = 'en' } = useRouter();
-  const strings = getLocaleStrings(locale);
+function App({ Component, pageProps }) {
+    const router = useRouter()
+  const locale = router.locale || 'en'
   let previousPathname = usePrevious(router.pathname)
 
   return (
@@ -33,14 +32,16 @@ export default function App({ Component, pageProps, router }) {
         </div>
       </div>
       <div className="relative">
-        <Header />
+        <Header locale={locale}/>
         
         <main>
           <Component previousPathname={previousPathname} {...pageProps} />
         </main>
-        <Footer />
+        <Footer locale={locale}/>
       </div>
     </>
   )
 }
+
+export default appWithTranslation(App)
 

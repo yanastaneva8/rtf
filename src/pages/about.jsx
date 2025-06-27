@@ -2,6 +2,8 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 import clsx from 'clsx'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+
 
 import { Container } from '@/components/Container'
 import {
@@ -22,7 +24,7 @@ const image4 =
   'https://images.unsplash.com/photo-1514733072381-980fd06a6128?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80'
 const image5 =
   'https://images.unsplash.com/photo-1541873676-a18131494184?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1318&q=80'
-import { useTranslation } from '@/utils/useTranslation'
+import { useTranslation } from 'next-i18next'
 
 
 function SocialLink({ className, href, children, icon: Icon }) {
@@ -75,15 +77,15 @@ function Photos() {
   )
 }
 
-export default function About() {
-  const t = useTranslation()
+export default function About({locale}) {
+    const {t} = useTranslation('common')
   return (
     <>
       <Head>
-        <title>{t.about.title}</title>
+        <title>{t('about.title')}</title>
         <meta
           name="description"
-          content={t.about.description}
+          content={t('about.description')}
         />
       </Head>
       <Container className="mt-16 sm:mt-32">
@@ -93,20 +95,20 @@ export default function About() {
           </div>
           <div className="lg:order-first lg:row-span-2">
             <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-     {t.about.title}
+    {t('about.title')}
             </h1>
             <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
               <p>
-                {t.about.p1}
+            {t('about.p1')}
               </p>
               <p>
-                {t.about.p2}
+            {t('about.p2')}
               </p>
               <p>
-             {t.about.p3}
+            {t('about.p3')}
               </p>
               <p>
-                {t.about.p4}
+            {t('about.p4')}
               </p>
             </div>
           </div>
@@ -137,4 +139,13 @@ export default function About() {
       </Container>
     </>
   )
+}
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common'])),
+      // ...other props
+    },
+  }
 }
