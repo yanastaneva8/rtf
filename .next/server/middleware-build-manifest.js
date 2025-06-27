@@ -34,6 +34,16 @@ globalThis.__BUILD_MANIFEST = {
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/articles.js"
+    ],
+    "/articles/crafting-a-design-system-for-a-multiplanetary-future": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/articles/crafting-a-design-system-for-a-multiplanetary-future.js"
+    ],
+    "/resources": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/resources.js"
     ]
   },
   "ampFirstPages": []

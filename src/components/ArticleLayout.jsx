@@ -24,7 +24,10 @@ export function ArticleLayout({
   isRssFeed = false,
   previousPathname,
 }) {
-  let router = useRouter()
+    let router
+  if (typeof window !== 'undefined') {
+    router = useRouter()
+  }
 
   if (isRssFeed) {
     return children
