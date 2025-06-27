@@ -1,7 +1,7 @@
 import { Fragment, useEffect, useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/navigation'
 import { Popover, Transition } from '@headlessui/react'
 import clsx from 'clsx'
 
