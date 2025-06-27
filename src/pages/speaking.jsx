@@ -3,6 +3,7 @@ import Head from 'next/head'
 import { Card } from '@/components/Card'
 import { Section } from '@/components/Section'
 import { SimpleLayout } from '@/components/SimpleLayout'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 function SpeakingSection({ children, ...props }) {
   return (
@@ -25,7 +26,7 @@ function Appearance({ title, description, event, cta, href }) {
   )
 }
 
-export default function Speaking() {
+export default function Speaking({locale}) {
   return (
     <>
       <Head>
@@ -83,4 +84,13 @@ export default function Speaking() {
       </SimpleLayout>
     </>
   )
+}
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common'])),
+      // ...other props
+    },
+  }
 }

@@ -1,6 +1,6 @@
 import nextMDX from '@next/mdx'
 import remarkGfm from 'remark-gfm'
-// import rehypePrism from '@mapbox/rehype-prism'
+import i18nConfig from './next-i18next.config.js'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -9,10 +9,7 @@ const nextConfig = {
   experimental: {
     scrollRestoration: true,
   },
-  i18n: {
-    locales: ['en', 'bg'],
-    defaultLocale: 'en',
-  },
+  i18n: i18nConfig.i18n,
 }
 
 const withMDX = nextMDX({
@@ -23,4 +20,5 @@ const withMDX = nextMDX({
   },
 })
 
+ 
 export default withMDX(nextConfig)

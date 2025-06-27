@@ -16,6 +16,8 @@ import logoAirbnb from '@/images/logos/airbnb.svg'
 import logoFacebook from '@/images/logos/facebook.svg'
 import logoPlanetaria from '@/images/logos/planetaria.svg'
 import logoStarbucks from '@/images/logos/starbucks.svg'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+
 const image1 =
   'https://images.unsplash.com/photo-1511140276483-30c1217ca449?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80'
 const image2 =
@@ -29,7 +31,7 @@ const image5 =
 import { formatDate } from '@/lib/formatDate'
 import { generateRssFeed } from '@/lib/generateRssFeed'
 import { getAllArticles } from '@/lib/getAllArticles'
-import { useTranslation } from '@/utils/useTranslation'
+import { useTranslation } from 'next-i18next'
 
 function MailIcon(props) {
   return (
@@ -252,28 +254,30 @@ function Photos() {
   )
 }
 
-export default function Home({ articles }) {
-  const t = useTranslation()
+export default function Home({ articles, locale }) {
+  const {t} = useTranslation('common')
+
+
 
   return (
     <>
       <Head>
         <title>
-{t.home.title}
+{t('home.title')}
         </title>
         <meta
           name="description"
-          content={t.home.description}
+          content={t('home.description')}
 
         />
       </Head>
       <Container className="mt-9">
         <div className="max-w-2xl">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-            {t.home.title}
+            {t('home.title')}
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            {t.home.description}
+            {t('home.description')}
           </p>
           <div className="mt-6 flex gap-6">
             <SocialLink
@@ -317,13 +321,14 @@ export default function Home({ articles }) {
   )
 }
 
-export async function getStaticProps() {
+export async function getStaticProps({locale}) {
   if (process.env.NODE_ENV === 'production') {
     await generateRssFeed()
   }
 
   return {
-    props: {
+ props: {
+      ...(await serverSideTranslations(locale, ['common'])),
       articles: (await getAllArticles())
         .slice(0, 4)
         .map(({ component, ...meta }) => meta),
