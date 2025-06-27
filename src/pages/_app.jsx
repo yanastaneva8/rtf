@@ -1,5 +1,5 @@
 import { appWithTranslation } from 'next-i18next'
-import { useRouter } from 'next/router'
+// import { useRouter } from 'next/router'
 
 import { useEffect, useRef } from 'react'
 
@@ -20,9 +20,9 @@ function usePrevious(value) {
 }
 
 function App({ Component, pageProps }) {
-    const router = useRouter()
-  const locale = router.locale || 'en'
-  let previousPathname = usePrevious(router.pathname)
+    // const router = useRouter()
+  const locale = pageProps.locale || 'en'
+  // let previousPathname = usePrevious(router.pathname)
 
   return (
     <>
@@ -35,7 +35,7 @@ function App({ Component, pageProps }) {
         <Header locale={locale}/>
         
         <main>
-          <Component previousPathname={previousPathname} {...pageProps} />
+          <Component {...pageProps} locale={locale} />
         </main>
         <Footer locale={locale}/>
       </div>
