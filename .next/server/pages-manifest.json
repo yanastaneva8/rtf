@@ -3,9 +3,5 @@
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
   "/": "pages/index.js",
-  "/articles": "pages/articles.js",
-  "/articles/crafting-a-design-system-for-a-multiplanetary-future": "pages/articles/crafting-a-design-system-for-a-multiplanetary-future.js",
-  "/speaking": "pages/speaking.js",
-  "/resources": "pages/resources.js",
-  "/about": "pages/about.js"
+  "/articles": "pages/articles.js"
 }

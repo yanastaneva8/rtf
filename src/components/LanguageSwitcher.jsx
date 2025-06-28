@@ -1,14 +1,23 @@
 import { useTranslation } from 'next-i18next'
+import Link from 'next/link'
+
+import { useRouter } from 'next/router'
+
 
 export default function LanguageSwitcher() {
   const { i18n } = useTranslation()
-
+  const router = useRouter()
   const toggleLanguage = () => {
-    const nextLocale = i18n.language === 'en' ? 'bg' : 'en'
+   const nextLocale = router.locale === 'en' ? 'bg' : 'en'
     i18n.changeLanguage(nextLocale)
   }
 
+ 
+  const nextLocale = router.locale === 'en' ? 'bg' : 'en'
+
   return (
+        <Link href={router.asPath} locale={nextLocale} scroll={false}>
+
     <button
       type="button"
       aria-label="Switch language"
@@ -19,5 +28,6 @@ export default function LanguageSwitcher() {
         {i18n.language === 'en' ? 'BG' : 'EN'}
       </span>
     </button>
+    </Link>
   )
 }
