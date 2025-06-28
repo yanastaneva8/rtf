@@ -26,7 +26,7 @@ function Appearance({ title, description, event, cta, href }) {
   )
 }
 
-export default function Speaking({locale}) {
+export default function Speaking({}) {
   return (
     <>
       <Head>

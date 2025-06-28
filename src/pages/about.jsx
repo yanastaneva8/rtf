@@ -77,7 +77,7 @@ function Photos() {
   )
 }
 
-export default function About({locale}) {
+export default function About({}) {
     const {t} = useTranslation('common')
   return (
     <>

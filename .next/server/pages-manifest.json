@@ -2,9 +2,10 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/resources": "pages/resources.js",
   "/": "pages/index.js",
-  "/about": "pages/about.js",
+  "/articles": "pages/articles.js",
   "/articles/crafting-a-design-system-for-a-multiplanetary-future": "pages/articles/crafting-a-design-system-for-a-multiplanetary-future.js",
-  "/articles": "pages/articles.js"
+  "/speaking": "pages/speaking.js",
+  "/resources": "pages/resources.js",
+  "/about": "pages/about.js"
 }

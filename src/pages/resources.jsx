@@ -62,7 +62,7 @@ function LinkIcon(props) {
   )
 }
 
-export default function Resources({locale}) {
+export default function Resources({}) {
     const {t} = useTranslation('common')
   return (
     <>

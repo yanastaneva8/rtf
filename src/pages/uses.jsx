@@ -26,7 +26,7 @@ function Tool({ title, href, children }) {
   )
 }
 
-export default function Uses({locale}) {
+export default function Uses({}) {
   return (
     <>
       <Head>

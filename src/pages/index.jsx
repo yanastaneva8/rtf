@@ -254,7 +254,7 @@ function Photos() {
   )
 }
 
-export default function Home({ articles, locale }) {
+export default function Home({ articles }) {
   const {t} = useTranslation('common')
 
 

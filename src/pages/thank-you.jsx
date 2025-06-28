@@ -3,7 +3,7 @@ import Head from 'next/head'
 import { SimpleLayout } from '@/components/SimpleLayout'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
-export default function ThankYou({locale}) {
+export default function ThankYou({}) {
   return (
     <>
       <Head>

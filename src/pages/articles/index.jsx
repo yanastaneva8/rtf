@@ -37,7 +37,7 @@ function Article({ article }) {
   )
 }
 
-export default function ArticlesIndex({ articles, locale }) {
+export default function ArticlesIndex({ articles }) {
       const {t} = useTranslation('common')
   return (
     <>
