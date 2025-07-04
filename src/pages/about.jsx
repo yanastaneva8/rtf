@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import Link from 'next/link'
 import clsx from 'clsx'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
@@ -12,18 +11,12 @@ import {
   LinkedInIcon,
   TwitterIcon,
 } from '@/components/SocialIcons'
-const portraitImage =
-  'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80'
-const image1 =
-  'https://images.unsplash.com/photo-1511140276483-30c1217ca449?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80'
-const image2 =
-  'https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80'
-const image3 =
-  'https://images.unsplash.com/photo-1547043736-b2247cb34b01?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1364&q=80'
-const image4 =
-  'https://images.unsplash.com/photo-1514733072381-980fd06a6128?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80'
-const image5 =
-  'https://images.unsplash.com/photo-1541873676-a18131494184?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1318&q=80'
+
+const anna =
+'https://i.ibb.co/PGFjtwxK/a.jpg'
+const yana =
+'https://i.ibb.co/GQLN8Hxf/y.jpg'
+
 import { useTranslation } from 'next-i18next'
 
 
@@ -56,8 +49,8 @@ function Photos() {
 
   return (
     <div className="mt-16 sm:mt-20">
-      <div className="-my-4 flex justify-center gap-3 overflow-hidden py-4 sm:gap-8">
-        {[image1, image2].map((image, imageIndex) => (
+      <div className="-my-4 flex flex-col justify-center gap-3 overflow-hidden py-4 sm:gap-8">
+        {[anna, yana].map((image, imageIndex) => (
           <div
             key={imageIndex}
             className={clsx(
