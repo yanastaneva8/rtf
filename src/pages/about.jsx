@@ -46,24 +46,30 @@ function MailIcon(props) {
 }
 
 function Photos() {
+const paragraphIds = ['anna', 'yana']
 
   return (
     <div className="mt-16 sm:mt-20">
       <div className="-my-4 flex flex-col items-center gap-3 overflow-hidden py-4 sm:gap-8">
         {[anna, yana].map((image, imageIndex) => (
-          <div
+          <a
             key={imageIndex}
-            className={clsx(
-              'relative aspect-[8/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl',
-            )}
+            href={`#${paragraphIds[imageIndex]}`}
+            className="focus:outline-none focus:ring-2 focus:ring-teal-500 rounded-xl"
           >
-            <img
-              src={image}
-              alt=""
-              sizes="(min-width: 640px) 18rem, 11rem"
-              className="absolute inset-0 h-full w-full object-cover"
-            />
-          </div>
+            <div
+              className={clsx(
+                'relative aspect-[8/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl',
+              )}
+            >
+              <img
+                src={image}
+                alt=""
+                sizes="(min-width: 640px) 18rem, 11rem"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+            </div>
+          </a>
         ))}
       </div>
     </div>
@@ -97,11 +103,11 @@ export default function About({}) {
               <p>
             {t('about.p2')}
               </p>
-              <p>
-            {t('about.p3')}
+              <p id="anna">
+            {t('about.anna')}
               </p>
-              <p>
-            {t('about.p4')}
+              <p id="yana">
+            {t('about.yana')}
               </p>
             </div>
           </div>
