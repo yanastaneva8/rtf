@@ -129,7 +129,7 @@ function MobileNavigation(props) {
             <nav className="mt-6">
               <ul className="-my-2 divide-y divide-zinc-100 text-base text-zinc-800 dark:divide-zinc-100/5 dark:text-zinc-300">
                 <MobileNavItem href="/about">{t('about.title')}</MobileNavItem>
-                <MobileNavItem href="/articles">{t('articles.title')}</MobileNavItem>
+                <MobileNavItem href="/blog">{t('blog.title')}</MobileNavItem>
                 <MobileNavItem href="/resources">{t('resources.title')}</MobileNavItem>
                 <MobileNavItem href="/speaking">Speaking</MobileNavItem>
                 <MobileNavItem href="/uses">Uses</MobileNavItem>
@@ -171,7 +171,8 @@ function DesktopNavigation(props) {
     <nav {...props}>
       <ul className="flex rounded-full bg-white/90 px-3 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10 overflow-x-auto">
         <NavItem href="/about">{t('about.title')}</NavItem>
-        <NavItem href="/articles">{t('articles.title')}</NavItem>
+        <NavItem href="/blog">{t('blog.title')}</NavItem>
+        <NavItem href="/stories">{t('stories.title')}</NavItem>
         <NavItem href="/resources">{t('resources.title')}</NavItem>
         <NavItem href="/speaking">Speaking</NavItem>
         <NavItem href="/uses">Uses</NavItem>

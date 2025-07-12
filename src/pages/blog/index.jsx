@@ -42,15 +42,15 @@ export default function ArticlesIndex({ articles }) {
   return (
     <>
       <Head>
-        <title>{t('articles.title')}</title>
+        <title>{t('blog.title')}</title>
         <meta
           name="description"
-          content={t('articles.description')}
+          content={t('blog.description')}
         />
       </Head>
       <SimpleLayout
-        title={t('articles.title')}
-        intro={t('articles.description')}
+        title={t('blog.title')}
+        intro={t('blog.description')}
       >
         <div className="md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-700/40">
           <div className="flex max-w-3xl flex-col space-y-16">
