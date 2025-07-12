@@ -8,8 +8,7 @@ import { Container } from '@/components/Container'
 import {
   GitHubIcon,
   InstagramIcon,
-  LinkedInIcon,
-  TwitterIcon,
+  ThreadsIcon,
 } from '@/components/SocialIcons'
 
 const anna =
@@ -113,17 +112,15 @@ export default function About({}) {
           </div>
           <div className="lg:pl-20">
             <ul role="list">
-              <SocialLink href="#" icon={TwitterIcon}>
-                Follow on Twitter
-              </SocialLink>
+
               <SocialLink href="#" icon={InstagramIcon} className="mt-4">
                 Follow on Instagram
               </SocialLink>
+                            <SocialLink href="#" icon={ThreadsIcon}>
+                Follow on Threads
+              </SocialLink>
               <SocialLink href="#" icon={GitHubIcon} className="mt-4">
                 Follow on GitHub
-              </SocialLink>
-              <SocialLink href="#" icon={LinkedInIcon} className="mt-4">
-                Follow on LinkedIn
               </SocialLink>
               <SocialLink
                 href="mailto:spencer@planetaria.tech"
