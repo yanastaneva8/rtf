@@ -12,13 +12,13 @@ import PricingCard from '@/components/PricingCard'
 const CATEGORIES = {
   en: [
     { key: 'dream-births', label: 'Dream Births' },
-    { key: 'lessons', label: 'Lessons' },
-    { key: 'nightmares', label: 'Nightmares' },
+    { key: 'lessons', label: 'Transformative Births' },
+    { key: 'traumatic', label: 'Traumatic Births' },
   ],
   bg: [
-    { key: 'мечтано раждане', label: 'Мечтано раждане' },
-    { key: 'поучително', label: 'Поучително' },
-    { key: 'травмиращо', label: 'Травмиращо' },
+    { key: 'dream-births', label: 'Мечтано раждане' },
+    { key: 'lessons', label: 'Поучително раждане' },
+    { key: 'traumatic', label: 'Травмиращо раждане' },
   ],
 }
 

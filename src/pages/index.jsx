@@ -8,7 +8,7 @@ import { Button } from '@/components/Button'
 import { Card } from '@/components/Card'
 import { Container } from '@/components/Container'
 import {
-  GitHubIcon,
+  FacebookIcon,
   InstagramIcon,
   ThreadsIcon,
 } from '@/components/SocialIcons'
@@ -62,7 +62,7 @@ function Article({ article }) {
         {formatDate(article.date)}
       </Card.Eyebrow>
       <Card.Description>{article.description}</Card.Description>
-      <Card.Cta>Read article</Card.Cta>
+      <Card.Cta>read</Card.Cta>
     </Card>
   )
 }
@@ -86,22 +86,22 @@ function Newsletter() {
     >
       <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
         <MailIcon className="h-6 w-6 flex-none" />
-        <span className="ml-3">Subscribe</span>
+        <span className="ml-3">subscribe</span>
       </h2>
       <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-        Get notified when we publish something new, and unsubscribe at any time.
+        get notified when we publish something new, and unsubscribe at any time.
       </p>
       <div className="mt-6 flex">
         <input
           type="email"
           name="email_address"
-          placeholder="Email"
-          aria-label="Email"
+          placeholder="email"
+          aria-label="email"
           required
           className="min-w-0 flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white px-3 py-[calc(theme(spacing.2)-1px)] shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-teal-500 focus:outline-none focus:ring-4 focus:ring-teal-500/10 dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-teal-400 dark:focus:ring-teal-400/10 sm:text-sm"
         />
         <Button type="submit" className="ml-4 flex-none">
-          Join
+          join
         </Button>
       </div>
     </form>
@@ -161,21 +161,21 @@ export default function Home({ blog }) {
           </p>
           <div className="mt-6 flex gap-6">
             <SocialLink
-              href="https://instagram.com"
-              aria-label="Follow on Instagram"
+              href="https://instagram.com/freebirth.bg"
+              aria-label="follow on Instagram"
               icon={InstagramIcon}
             />
-         
             <SocialLink
-              href="https://threads.com"
-              aria-label="Follow on Threads"
+              href="https://threads.com/freebirth.bg"
+              aria-label="follow on Threads"
               icon={ThreadsIcon}
             />
-               <SocialLink
-              href="https://github.com"
-              aria-label="Follow on GitHub"
-              icon={GitHubIcon}
+            <SocialLink
+              href="https://facebook.com/freebirth.bg"
+              aria-label="follow on Facebook"
+              icon={FacebookIcon}
             />
+        
           </div>
         </div>
       </Container>

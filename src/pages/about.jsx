@@ -6,7 +6,6 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 import { Container } from '@/components/Container'
 import {
-  GitHubIcon,
   InstagramIcon,
   ThreadsIcon,
 } from '@/components/SocialIcons'
@@ -119,15 +118,13 @@ export default function About({}) {
                             <SocialLink href="#" icon={ThreadsIcon}>
                 Follow on Threads
               </SocialLink>
-              <SocialLink href="#" icon={GitHubIcon} className="mt-4">
-                Follow on GitHub
-              </SocialLink>
+
               <SocialLink
-                href="mailto:spencer@planetaria.tech"
+                href="mailto:hello@freebirth.bg"
                 icon={MailIcon}
                 className="mt-8 border-t border-zinc-100 pt-8 dark:border-zinc-700/40"
               >
-                spencer@planetaria.tech
+                hello@freebirth.bg
               </SocialLink>
             </ul>
           </div>
