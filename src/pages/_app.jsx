@@ -1,23 +1,10 @@
 import { appWithTranslation } from 'next-i18next'
-// import { useRouter } from 'next/router'
-
-// import { useEffect, useRef } from 'react'
-
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
 
 import '@/styles/tailwind.css'
 import 'focus-visible'
 
-// function usePrevious(value) {
-//   let ref = useRef()
-
-//   useEffect(() => {
-//     ref.current = value
-//   }, [value])
-
-//   return ref.current
-// }
 
 function App({ Component, pageProps }) {
     // const router = useRouter()

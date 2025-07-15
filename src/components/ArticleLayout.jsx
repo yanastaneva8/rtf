@@ -5,6 +5,22 @@ import { Container } from '@/components/Container'
 import { Prose } from '@/components/Prose'
 import { formatDate } from '@/lib/formatDate'
 
+function TranslationSwitcher({ slug, currentLocale }) {
+  const router = useRouter()
+
+  function handleLocaleChange(nextLocale) {
+    // Build the new URL based on the locale and slug
+    // Example: /blog/bg/crafting-a-design-system-for-a-multiplanetary-future
+    router.push(`/blog/${nextLocale}/${slug}`)
+  }
+
+  return (
+    <div>
+      <button onClick={() => handleLocaleChange('en')}>English</button>
+      <button onClick={() => handleLocaleChange('bg')}>Български</button>
+    </div>
+  )
+}
 function ArrowLeftIcon(props) {
   return (
     <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" {...props}>

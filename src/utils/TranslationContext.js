@@ -25,3 +25,9 @@ export function useTranslation() {
   }
   return context
 }
+
+function handleLocaleSwitch(currentLocale, slug) {
+  const router = useRouter()
+  const nextLocale = currentLocale === 'en' ? 'bg' : 'en'
+  router.push(`/blog/${nextLocale}/${slug}`)
+}

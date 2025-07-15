@@ -1,8 +1,6 @@
-import { useEffect, useState } from 'react'
 
 
 import Head from 'next/head'
-import Image from 'next/image'
 import Link from 'next/link'
 import clsx from 'clsx'
 
@@ -28,8 +26,8 @@ const autumn =
 
 import { formatDate } from '@/lib/formatDate'
 import { generateRssFeed } from '@/lib/generateRssFeed'
-import { getAllArticles } from '@/lib/getAllArticles'
 import { useTranslation } from 'next-i18next'
+import { getAllBlogs } from '@/lib/getAllBlogs'
 
 function MailIcon(props) {
   return (
@@ -206,7 +204,7 @@ export async function getStaticProps({locale}) {
   return {
  props: {
       ...(await serverSideTranslations(locale, ['common'])),
-      blog: (await getAllArticles())
+      blog: (await getAllBlogs())
         .slice(0, 4)
         .map(({ component, ...meta }) => meta),
     },

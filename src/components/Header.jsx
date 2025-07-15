@@ -1,7 +1,7 @@
 import { Fragment, useEffect, useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
+import { useRouter } from 'next/router'
 import { Popover, Transition } from '@headlessui/react'
 import clsx from 'clsx'
 
@@ -131,8 +131,8 @@ function MobileNavigation(props) {
                 <MobileNavItem href="/about">{t('about.title')}</MobileNavItem>
                 <MobileNavItem href="/blog">{t('blog.title')}</MobileNavItem>
                 <MobileNavItem href="/resources">{t('resources.title')}</MobileNavItem>
-                <MobileNavItem href="/speaking">Speaking</MobileNavItem>
-                <MobileNavItem href="/uses">Uses</MobileNavItem>
+                {/* <MobileNavItem href="/speaking">Speaking</MobileNavItem>
+                <MobileNavItem href="/uses">Uses</MobileNavItem> */}
               </ul>
             </nav>
           </Popover.Panel>
@@ -174,8 +174,8 @@ function DesktopNavigation(props) {
         <NavItem href="/blog">{t('blog.title')}</NavItem>
         <NavItem href="/stories">{t('stories.title')}</NavItem>
         <NavItem href="/resources">{t('resources.title')}</NavItem>
-        <NavItem href="/speaking">Speaking</NavItem>
-        <NavItem href="/uses">Uses</NavItem>
+        {/* <NavItem href="/speaking">Speaking</NavItem>
+        <NavItem href="/uses">Uses</NavItem> */}
       </ul>
     </nav>
   )
@@ -235,16 +235,20 @@ function AvatarContainer({ className, ...props }) {
 }
 
 function Avatar({ large = false, className, ...props }) {
+  const router = useRouter()
+  const currentLocale = router.query.locale || router.locale || 'en'
+  const homeHref = currentLocale === 'en' ? '/' : `/${currentLocale}`
+
   return (
     <Link
-      href="/"
+      href={homeHref}
       aria-label="Home"
       className={clsx(className, 'pointer-events-auto')}
       {...props}
     >
       <Image
         src={rtfLogo}
-        alt="Roots to Fruits logo"
+        alt="Freebirth logo"
         width={large ? 64 : 36}
         height={large ? 64 : 36}
         className={clsx(

@@ -1,44 +1,65 @@
+import { useRouter } from 'next/router'
+
 import Head from 'next/head'
 
 import { Card } from '@/components/Card'
 import { SimpleLayout } from '@/components/SimpleLayout'
 import { formatDate } from '@/lib/formatDate'
-import { getAllArticles } from '@/lib/getAllArticles'
+// import { getAllArticles } from '@/lib/getAllArticles'
 
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { getAllBlogs } from '@/lib/getAllBlogs'
 
-function Article({ article }) {
+function Blog({ blog }) {
   return (
-    <article className="md:grid md:grid-cols-4 md:items-baseline">
+    <blog className="md:grid md:grid-cols-4 md:items-baseline">
       <Card className="md:col-span-3">
-        <Card.Title href={`/articles/${article.slug}`}>
-          {article.title}
+<Card.Title href={`/blog/${blog.locale}/${blog.slug}`}>
+          {blog.title}
         </Card.Title>
         <Card.Eyebrow
           as="time"
-          dateTime={article.date}
+          dateTime={blog.date}
           className="md:hidden"
           decorate
         >
-          {formatDate(article.date)}
+          {formatDate(blog.date)}
         </Card.Eyebrow>
-        <Card.Description>{article.description}</Card.Description>
-        <Card.Cta>Read article</Card.Cta>
+        <Card.Description>{blog.description}</Card.Description>
+        <Card.Cta>Read blog</Card.Cta>
       </Card>
       <Card.Eyebrow
         as="time"
-        dateTime={article.date}
+        dateTime={blog.date}
         className="mt-1 hidden md:block"
       >
-        {formatDate(article.date)}
+        {formatDate(blog.date)}
       </Card.Eyebrow>
-    </article>
+    </blog>
   )
 }
 
-export default function ArticlesIndex({ articles }) {
-      const {t} = useTranslation('common')
+function TranslationSwitcher({ currentLocale }) {
+  const router = useRouter()
+  function handleLocaleChange(nextLocale) {
+    router.push(`/blog/${nextLocale}`)
+  }
+  return (
+    <div className="mb-6 flex gap-2">
+      <button onClick={() => handleLocaleChange('en')}>English</button>
+      <button onClick={() => handleLocaleChange('bg')}>Български</button>
+    </div>
+  )
+}
+
+export default function BlogsIndex({ blogs }) {
+  const { t } = useTranslation('common')
+  const router = useRouter()
+  const currentLocale = router.query.locale || router.locale || 'en'
+
+  // Filter blogs for the current locale
+  const localeBlogs = blogs.filter(blog => blog.locale === currentLocale)
   return (
     <>
       <Head>
@@ -52,11 +73,15 @@ export default function ArticlesIndex({ articles }) {
         title={t('blog.title')}
         intro={t('blog.description')}
       >
+                <TranslationSwitcher currentLocale={currentLocale} />
+
         <div className="md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-700/40">
           <div className="flex max-w-3xl flex-col space-y-16">
-            {articles.map((article) => (
-              <Article key={article.slug} article={article} />
-            ))}
+                <div>
+      {localeBlogs.map((blog) => (
+        <Blog key={blog.slug} blog={blog} />
+      ))}
+    </div>
           </div>
         </div>
       </SimpleLayout>
@@ -67,7 +92,7 @@ export default function ArticlesIndex({ articles }) {
 export async function getStaticProps({ locale }) {
   return {
     props: {
-       articles: (await getAllArticles()).map(({ component, ...meta }) => meta),
+      blogs: (await getAllBlogs(locale)).map(({ component, ...meta }) => meta),
       ...(await serverSideTranslations(locale, ['common'])),
       // ...other props
     },

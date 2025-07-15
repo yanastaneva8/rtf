@@ -1,63 +1,97 @@
 import Head from 'next/head'
-
 import { Card } from '@/components/Card'
 import { SimpleLayout } from '@/components/SimpleLayout'
 import { formatDate } from '@/lib/formatDate'
-import { getAllArticles } from '@/lib/getAllArticles'
-
 import { useTranslation } from 'next-i18next'
+import { useRouter } from 'next/router'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { getAllStories } from '@/lib/getAllStories'
+import PricingCard from '@/components/PricingCard'
 
-function Article({ article }) {
+
+const CATEGORIES = {
+  en: [
+    { key: 'dream-births', label: 'Dream Births' },
+    { key: 'lessons', label: 'Lessons' },
+    { key: 'nightmares', label: 'Nightmares' },
+  ],
+  bg: [
+    { key: 'мечтано раждане', label: 'Мечтано раждане' },
+    { key: 'поучително', label: 'Поучително' },
+    { key: 'травмиращо', label: 'Травмиращо' },
+  ],
+}
+
+function Story({ story }) {
   return (
-    <article className="md:grid md:grid-cols-4 md:items-baseline">
+    <div className="md:grid md:grid-cols-4 md:items-baseline">
       <Card className="md:col-span-3">
-        <Card.Title href={`/articles/${article.slug}`}>
-          {article.title}
+        <Card.Title href={`/stories/${story.locale}/${story.slug}`}>
+          {story.title}
         </Card.Title>
         <Card.Eyebrow
           as="time"
-          dateTime={article.date}
+          dateTime={story.date}
           className="md:hidden"
           decorate
         >
-          {formatDate(article.date)}
+          {formatDate(story.date)}
         </Card.Eyebrow>
-        <Card.Description>{article.description}</Card.Description>
-        <Card.Cta>Read article</Card.Cta>
+        <Card.Description>{story.description}</Card.Description>
+        <Card.Cta>Read story</Card.Cta>
       </Card>
       <Card.Eyebrow
         as="time"
-        dateTime={article.date}
+        dateTime={story.date}
         className="mt-1 hidden md:block"
       >
-        {formatDate(article.date)}
+        {formatDate(story.date)}
       </Card.Eyebrow>
-    </article>
+    </div>
   )
 }
 
-export default function ArticlesIndex({ articles }) {
-      const {t} = useTranslation('common')
+// ...existing imports...
+
+export default function StoriesIndex({ stories }) {
+  const {t} = useTranslation('common')
+  const router = useRouter()
+  const currentLocale = router.query.locale || router.locale || 'en'
+  const categories = CATEGORIES[currentLocale] || CATEGORIES['en']
+
+  function handleCategoryClick(categoryKey) {
+    const section = document.getElementById(`category-${categoryKey}`)
+    if (section) section.scrollIntoView({ behavior: 'smooth' })
+  }
+
   return (
     <>
       <Head>
-        <title>{t('stories.title')}</title>
-        <meta
-          name="description"
-          content={t('stories.description')}
-        />
+        <title>{t('stories.title')}
+</title>
       </Head>
-      <SimpleLayout
-        title={t('stories.title')}
-        intro={t('stories.description')}
-      >
-        <div className="md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-700/40">
-          <div className="flex max-w-3xl flex-col space-y-16">
-            {articles.map((article) => (
-              <Article key={article.slug} article={article} />
+      <SimpleLayout title={t('stories.title')} intro={t('stories.description')}>
+        <div>
+          <div className="mb-12 grid grid-cols-1 sm:grid-cols-3 gap-6">
+            {categories.map(category => (
+              <PricingCard
+                key={category.key}
+                label={category.label}
+                onClick={() => handleCategoryClick(category.key)}
+              />
             ))}
           </div>
+          {categories.map(category => (
+            <section key={category.key} id={`category-${category.key}`} className="mb-8">
+              <div className="flex flex-col space-y-8">
+                {stories
+                  .filter(story => story.category === category.key)
+                  .map(story => (
+                    <Story key={story.slug} story={story} />
+                  ))}
+              </div>
+            </section>
+          ))}
         </div>
       </SimpleLayout>
     </>
@@ -67,9 +101,8 @@ export default function ArticlesIndex({ articles }) {
 export async function getStaticProps({ locale }) {
   return {
     props: {
-       articles: (await getAllArticles()).map(({ component, ...meta }) => meta),
+      stories: (await getAllStories(locale)).map(({ component, ...meta }) => meta),
       ...(await serverSideTranslations(locale, ['common'])),
-      // ...other props
     },
   }
 }
