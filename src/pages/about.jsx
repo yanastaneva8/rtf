@@ -12,9 +12,9 @@ import {
 } from '@/components/SocialIcons'
 
 const anna =
-'https://i.ibb.co/PGFjtwxK/a.jpg'
+'https://i.ibb.co/WNG3Zd8G/a.jpg'
 const yana =
-'https://i.ibb.co/GQLN8Hxf/y.jpg'
+'https://i.ibb.co/67jXvhfv/y.jpg'
 
 import { useTranslation } from 'next-i18next'
 
