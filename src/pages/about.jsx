@@ -6,6 +6,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 import { Container } from '@/components/Container'
 import {
+  FacebookIcon,
   InstagramIcon,
   ThreadsIcon,
 } from '@/components/SocialIcons'
@@ -101,24 +102,33 @@ export default function About({}) {
               <p>
             {t('about.p2')}
               </p>
-              <p id="anna">
-            {t('about.anna')}
-              </p>
-              <p id="yana">
-            {t('about.yana')}
-              </p>
+              
+              <div id="anna">
+                 <p className="text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
+    {t('about.t-anna')}
+            </p>
+            {t('about.p-anna')}
+              </div>
+              <div id="yana">
+                 <p className="text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
+    {t('about.t-yana')}
+            </p>
+            {t('about.p-yana')}
+              </div>
             </div>
           </div>
           <div className="lg:pl-20">
             <ul role="list">
 
-              <SocialLink href="#" icon={InstagramIcon} className="mt-4">
+              <SocialLink href="https://instagram.com/freebirth.bg" icon={InstagramIcon} className="mt-4">
                 Follow on Instagram
               </SocialLink>
-                            <SocialLink href="#" icon={ThreadsIcon}>
+                            <SocialLink href="https://threads.com/freebirth.bg" icon={ThreadsIcon} className="mt-4">
                 Follow on Threads
               </SocialLink>
-
+ <SocialLink href="https://facebook.com/freebirth.bg" icon={FacebookIcon} className="mt-4">
+                Follow on Facebook
+              </SocialLink>
               <SocialLink
                 href="mailto:hello@freebirth.bg"
                 icon={MailIcon}
