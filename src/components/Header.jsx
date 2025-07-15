@@ -130,6 +130,8 @@ function MobileNavigation(props) {
               <ul className="-my-2 divide-y divide-zinc-100 text-base text-zinc-800 dark:divide-zinc-100/5 dark:text-zinc-300">
                 <MobileNavItem href="/about">{t('about.title')}</MobileNavItem>
                 <MobileNavItem href="/blog">{t('blog.title')}</MobileNavItem>
+                                <MobileNavItem href="/stories">{t('stories.title')}</MobileNavItem>
+
                 <MobileNavItem href="/resources">{t('resources.title')}</MobileNavItem>
                 {/* <MobileNavItem href="/speaking">Speaking</MobileNavItem>
                 <MobileNavItem href="/uses">Uses</MobileNavItem> */}
