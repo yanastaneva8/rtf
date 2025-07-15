@@ -250,7 +250,7 @@ function Avatar({ large = false, className, ...props }) {
     >
       <Image
         src={rtfLogo}
-        alt="Freebirth logo"
+        alt="freebirth logo"
         width={large ? 64 : 36}
         height={large ? 64 : 36}
         className={clsx(
