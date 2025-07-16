@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation'
 import { Container } from '@/components/Container'
 import { Prose } from '@/components/Prose'
 import { formatDate } from '@/lib/formatDate'
+import { useTranslation } from 'next-i18next'
 
 function TranslationSwitcher({ slug, currentLocale }) {
   const router = useRouter()
@@ -40,6 +41,7 @@ export function ArticleLayout({
   isRssFeed = false,
   previousPathname,
 }) {
+  const { t } = useTranslation('common') // ✅ 'common' namespace from your JSON files
     let router
   if (typeof window !== 'undefined') {
     router = useRouter()

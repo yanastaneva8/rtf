@@ -59,10 +59,10 @@ export default function StoriesIndex({ stories }) {
   const currentLocale = router.query.locale || router.locale || 'en'
   const categories = CATEGORIES[currentLocale] || CATEGORIES['en']
 
-  function handleCategoryClick(categoryKey) {
-    const section = document.getElementById(`category-${categoryKey}`)
-    if (section) section.scrollIntoView({ behavior: 'smooth' })
-  }
+function handleCategoryClick(categoryKey) {
+  const path = `/stories/${currentLocale}/${categoryKey}`
+  router.push(path)
+}
 
   return (
     <>

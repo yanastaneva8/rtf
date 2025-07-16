@@ -11,6 +11,8 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { getAllBlogs } from '@/lib/getAllBlogs'
 
 function Blog({ blog }) {
+      const {t} = useTranslation('common')
+
   return (
     <blog className="md:grid md:grid-cols-4 md:items-baseline">
       <Card className="md:col-span-3">
@@ -89,11 +91,16 @@ export default function BlogsIndex({ blogs }) {
 }
 
 export async function getStaticProps({ locale }) {
+  const blogs = await getAllBlogs(locale)
+  const blogMeta = blogs.map(({ component, ...meta }) => meta)
+
   return {
     props: {
-      blogs: (await getAllBlogs(locale)).map(({ component, ...meta }) => meta),
+      blogs: blogMeta,
       ...(await serverSideTranslations(locale, ['common'])),
-      // ...other props
     },
   }
 }
+
+
+
