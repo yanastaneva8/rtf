@@ -10,13 +10,15 @@ import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { getAllBlogs } from '@/lib/getAllBlogs'
 
-function Blog({ blog }) {
-      const {t} = useTranslation('common')
+
+export function Blog({ blog }) {
+  const { t } = useTranslation('common')
+  const router = useRouter()
 
   return (
-    <blog className="md:grid md:grid-cols-4 md:items-baseline">
-      <Card className="md:col-span-3">
-<Card.Title href={`/blog/${blog.locale}/${blog.slug}`}>
+    <div className="md:grid md:grid-cols-4 md:items-baseline">
+      <Card as="div" className="md:col-span-3">
+        <Card.Title href={`/blog/${blog.locale}/${blog.slug}`}>
           {blog.title}
         </Card.Title>
         <Card.Eyebrow
@@ -25,34 +27,22 @@ function Blog({ blog }) {
           className="md:hidden"
           decorate
         >
-          {formatDate(blog.date)}
+          {formatDate(blog.date, router.locale)}
         </Card.Eyebrow>
         <Card.Description>{blog.description}</Card.Description>
-        <Card.Cta>Read blog</Card.Cta>
+        <Card.Cta>{t('blog.read-more') || 'Read blog'}</Card.Cta>
       </Card>
       <Card.Eyebrow
         as="time"
         dateTime={blog.date}
         className="mt-1 hidden md:block"
       >
-        {formatDate(blog.date)}
+        {formatDate(blog.date, router.locale)}
       </Card.Eyebrow>
-    </blog>
-  )
-}
-
-function TranslationSwitcher({ currentLocale }) {
-  const router = useRouter()
-  function handleLocaleChange(nextLocale) {
-    router.push(`/blog/${nextLocale}`)
-  }
-  return (
-    <div className="mb-6 flex gap-2">
-      <button onClick={() => handleLocaleChange('en')}>English</button>
-      <button onClick={() => handleLocaleChange('bg')}>Български</button>
     </div>
   )
 }
+
 
 export default function BlogsIndex({ blogs }) {
   const { t } = useTranslation('common')
@@ -74,7 +64,7 @@ export default function BlogsIndex({ blogs }) {
         title={t('blog.title')}
         intro={t('blog.description')}
       >
-                <TranslationSwitcher currentLocale={currentLocale} />
+                {/* <TranslationSwitcher currentLocale={currentLocale} /> */}
 
         <div className="md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-700/40">
           <div className="flex max-w-3xl flex-col space-y-16">

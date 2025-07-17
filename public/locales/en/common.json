@@ -15,7 +15,8 @@
   },
   "blog": {
     "title": "blog",
-    "description": "Our reflections and research-backed posts."
+    "description": "Our reflections and research-backed posts.",
+    "read-more": "read more"
   },
   "stories":{
 "title": "stories",

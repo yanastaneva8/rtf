@@ -7,6 +7,7 @@ import { useRouter } from 'next/router'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { getAllStories } from '@/lib/getAllStories'
 import PricingCard from '@/components/PricingCard'
+import { useTranslation } from 'next-i18next'
 
 
 const CATEGORIES = {
@@ -23,6 +24,10 @@ const CATEGORIES = {
 }
 
 function Story({ story }) {
+    const { t } = useTranslation('common')
+
+  const router = useRouter()
+
   return (
     <div className="md:grid md:grid-cols-4 md:items-baseline">
       <Card className="md:col-span-3">
@@ -35,7 +40,7 @@ function Story({ story }) {
           className="md:hidden"
           decorate
         >
-          {formatDate(story.date)}
+          {formatDate(story.date, router.locale)}
         </Card.Eyebrow>
         <Card.Description>{story.description}</Card.Description>
         <Card.Cta>Read story</Card.Cta>
@@ -45,7 +50,7 @@ function Story({ story }) {
         dateTime={story.date}
         className="mt-1 hidden md:block"
       >
-        {formatDate(story.date)}
+        {formatDate(story.date, router.locale)}
       </Card.Eyebrow>
     </div>
   )

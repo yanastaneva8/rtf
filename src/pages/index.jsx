@@ -28,6 +28,7 @@ import { formatDate } from '@/lib/formatDate'
 import { generateRssFeed } from '@/lib/generateRssFeed'
 import { useTranslation } from 'next-i18next'
 import { getAllBlogs } from '@/lib/getAllBlogs'
+import {useRouter} from 'next/router'
 
 function MailIcon(props) {
   return (
@@ -53,13 +54,15 @@ function MailIcon(props) {
 }
 
 function Article({ article }) {
+  const router = useRouter()
+
   return (
     <Card as="article">
       <Card.Title href={`/blog/${article.slug}`}>
         {article.title}
       </Card.Title>
       <Card.Eyebrow as="time" dateTime={article.date} decorate>
-        {formatDate(article.date)}
+        {formatDate(article.date, router.locale)}
       </Card.Eyebrow>
       <Card.Description>{article.description}</Card.Description>
       <Card.Cta>read</Card.Cta>

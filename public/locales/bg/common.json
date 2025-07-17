@@ -15,7 +15,9 @@
   },
   "blog": {
     "title": "блог",
-    "description": "Размисли и проучвания."
+    "description": "Размисли и проучвания.",
+    "read-more": "отвори"
+
   },  
   "stories":{
 "title": "истории",
