@@ -7,7 +7,6 @@ import { useRouter } from 'next/router'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { getAllStories } from '@/lib/getAllStories'
 import PricingCard from '@/components/PricingCard'
-import { useTranslation } from 'next-i18next'
 
 
 const CATEGORIES = {
