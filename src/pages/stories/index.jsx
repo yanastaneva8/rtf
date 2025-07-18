@@ -9,19 +9,6 @@ import { getAllStories } from '@/lib/getAllStories'
 import PricingCard from '@/components/PricingCard'
 
 
-const CATEGORIES = {
-  en: [
-    { key: 'dream-births', label: 'Dream Births' },
-    { key: 'lessons', label: 'Transformative Births' },
-    { key: 'traumatic', label: 'Traumatic Births' },
-  ],
-  bg: [
-    { key: 'dream-births', label: 'Мечтано раждане' },
-    { key: 'lessons', label: 'Поучително раждане' },
-    { key: 'traumatic', label: 'Травмиращо раждане' },
-  ],
-}
-
 function Story({ story }) {
     const { t } = useTranslation('common')
 
@@ -61,12 +48,17 @@ export default function StoriesIndex({ stories }) {
   const {t} = useTranslation('common')
   const router = useRouter()
   const currentLocale = router.query.locale || router.locale || 'en'
-  const categories = CATEGORIES[currentLocale] || CATEGORIES['en']
+const categoriesObj = t('stories.categories', { returnObjects: true })
+  const categories = Object.entries(categoriesObj).map(([key, label]) => ({
+    key,
+    label,
+  }))
 
-function handleCategoryClick(categoryKey) {
-  const path = `/stories/${currentLocale}/${categoryKey}`
-  router.push(path)
-}
+  function handleCategoryClick(categoryKey) {
+    const path = `/stories/${categoryKey}`
+    router.push(path)
+  }
+
 
   return (
     <>

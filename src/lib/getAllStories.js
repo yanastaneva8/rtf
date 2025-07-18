@@ -1,25 +1,31 @@
 import glob from 'fast-glob'
 import * as path from 'path'
 
-async function importStory(storyFilename, locale) {
-  let { meta, default: component } = await import(
-    `../pages/stories/${locale}/${storyFilename}`
+async function importBlog(blogFilename, category) {
+  const { meta, default: component } = await import(
+    `../pages/stories/${category}/${blogFilename}`
   )
+
   return {
-    slug: storyFilename.replace(/(\/index)?\.mdx$/, ''),
-    locale, // <-- add locale here
+    slug: blogFilename.replace(/\/index\.jsx$/, ''),
+    locale,
     ...meta,
     component,
   }
 }
 
-export async function getAllStories(locale = 'en') {
-  let storyDir = path.join(process.cwd(), 'src/pages/stories', locale)
-  let storyFilenames = await glob(['*.mdx', '*/index.mdx'], {
-    cwd: storyDir,
+export async function getAllStories(category, locale = 'en') {
+  const blogDir = path.join(process.cwd(), 'src/pages/stories/', category)
+  
+
+  // Only match folders with index.jsx
+  const blogFilenames = await glob(['*/index.jsx'], {
+    cwd: blogDir,
   })
 
-  let stories = await Promise.all(storyFilenames.map(filename => importStory(filename, locale)))
+  const blogs = await Promise.all(
+    blogFilenames.map(filename => importBlog(filename, category))
+  )
 
-  return stories.sort((a, z) => new Date(z.date) - new Date(a.date))
+  return blogs.sort((a, z) => new Date(z.date) - new Date(a.date))
 }

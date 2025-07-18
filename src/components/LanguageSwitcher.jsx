@@ -3,15 +3,16 @@ import Link from 'next/link'
 
 export default function LanguageSwitcher() {
   const router = useRouter()
-  const { asPath } = router
-  const currentLocale = router.query.locale || router.locale || 'en'
-  const nextLocale = currentLocale === 'en' ? 'bg' : 'en'
+  const { asPath, locale, defaultLocale } = router
 
-  // Replace the locale in the path (assumes /blog/:locale/... or /stories/:locale/...)
-  const newPath = asPath.replace(`/${currentLocale}/`, `/${nextLocale}/`)
+  // Toggle locale
+  const nextLocale = locale === 'en' ? 'bg' : 'en'
+
+  // Strip the current locale from the path (e.g. /bg/stories/category/foo → /stories/category/foo)
+  const pathWithoutLocale = asPath.replace(`/${locale}`, '') || '/'
 
   return (
-    <Link href={newPath} locale={nextLocale} scroll={false}>
+    <Link href={pathWithoutLocale} locale={nextLocale} scroll={false}>
       <button
         type="button"
         aria-label="Switch language"

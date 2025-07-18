@@ -1,10 +1,10 @@
 {
   "home": {
     "title": "freebirth.",
-    "description": "free mind, free body, free soul. free birth."
+    "description": "Free mind, free body, free soul. "
   },
   "about": {
-    "title": "about",
+    "title": "About",
     "description": "We are Anna and Yana",
     "p1": "We are two friends — passionate about real food, conscious parenting, and living in rhythm with nature.",
     "p2": "Every article, guide, and gathering is rooted in compassion and backed by credible science.",
@@ -14,24 +14,29 @@
     "p-yana": "I am a mother who experienced a completely natural home birth. I have a MSc in Mathematics, but I left academia prematurely before completing my PhD. My interests are mainly scientific and my hobbies are nature-related. My favorite topics to discuss are: free will (or rather, the lack thereof), the multiverse, and living in harmony with nature. My strengths lie in solving complex problems, research, and the optimization of existing solutions. My definition of quality time is one shared with my loved ones, preferrably in nature. My mission in life is to present the facts as they are, indifierent to the feelings of those, who might feel hurt. I believe it’s important to be aware of the reality we live in and to make informed decisions."
   },
   "blog": {
-    "title": "blog",
+    "title": "Blog",
     "description": "Our reflections and research-backed posts.",
-    "read-more": "read more"
+    "read-more": "Read more"
   },
   "stories":{
-"title": "stories",
-"description": "Personal stories."
-  },
+"title": "Stories",
+"description": "Personal stories.",
+"categories": 
+    { "dream-births":"Dream Births",
+    "lessons": "Transformative Births",
+    "traumatic": "Traumatic Births"
+  }
+},
     "resources": {
-    "title": "resources",
+    "title": "Resources",
     "description": "Books, podcasts, products.",
-    "books": "books",
+    "books": "Books",
     "books_description": "Useful books",
-    "podcasts": "podcasts",
+    "podcasts": "Podcasts",
     "podcasts_description": "Useful podcasts",
-    "products": "products",
+    "products": "Products",
     "products_description": "Useful products",
-    "videos": "videos",
+    "videos": "Videos",
     "videos_description": "Useful videos"
   }
 }
