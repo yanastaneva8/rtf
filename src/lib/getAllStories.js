@@ -1,24 +1,28 @@
+
+
 import glob from 'fast-glob'
 import * as path from 'path'
 
-async function importBlog(blogFilename, category) {
+async function importBlog(storyFilename, category) {
   const { meta, default: component } = await import(
-    `../pages/stories/${category}/${blogFilename}`
+    `../pages/stories/${category}/${storyFilename}`
   )
 
   return {
-    slug: blogFilename.replace(/\/index\.jsx$/, ''),
-    locale,
+    slug: storyFilename.replace(/(\/index)?\.jsx$/, ''),
+    category,
     ...meta,
     component,
   }
 }
 
-export async function getAllStories(category, locale = 'en') {
-  const blogDir = path.join(process.cwd(), 'src/pages/stories/', category)
-  
+export async function getAllStories(category) {
+  if (!category) {
+    throw new Error('getAllStories: `category` is required.')
+  }
 
-  // Only match folders with index.jsx
+  const blogDir = path.join(process.cwd(), 'src/pages/stories', category)
+
   const blogFilenames = await glob(['*/index.jsx'], {
     cwd: blogDir,
   })
@@ -29,3 +33,4 @@ export async function getAllStories(category, locale = 'en') {
 
   return blogs.sort((a, z) => new Date(z.date) - new Date(a.date))
 }
+
