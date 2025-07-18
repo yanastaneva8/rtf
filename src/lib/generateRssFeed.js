@@ -2,10 +2,10 @@ import ReactDOMServer from 'react-dom/server'
 import { Feed } from 'feed'
 import { mkdir, writeFile } from 'fs/promises'
 
-import { getAllStories } from './getAllStories'
+// import { getAllStories } from './getAllStories'
 
 export async function generateRssFeed() {
-  let articles = await getAllStories()
+  // let articles = await getAllStories()
   let siteUrl = process.env.NEXT_PUBLIC_SITE_URL
   let author = {
     name: 'freebirth',

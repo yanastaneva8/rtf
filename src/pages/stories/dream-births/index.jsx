@@ -82,6 +82,8 @@ export default function DreamBirths({ blogs }) {
 
 
 export async function getStaticProps({ locale }) {
+    const category = "dream-births"
+
   const blogs = await getAllStories(locale)
   const blogMeta = blogs.map(({ component, ...meta }) => meta)
 

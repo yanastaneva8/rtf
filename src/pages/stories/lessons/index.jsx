@@ -82,7 +82,9 @@ export default function Lessons({ blogs }) {
 
 
 export async function getStaticProps({ locale }) {
-  const blogs = await getAllStories(locale)
+    const category = "lessons"
+
+  const blogs = await getAllStories(category)
   const blogMeta = blogs.map(({ component, ...meta }) => meta)
 
   return {

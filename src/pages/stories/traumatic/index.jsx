@@ -82,7 +82,8 @@ export default function Traumatic({ blogs }) {
 
 
 export async function getStaticProps({ locale }) {
-  const blogs = await getAllStories(locale)
+  const category = "traumatic"
+  const blogs = await getAllStories(category)
   const blogMeta = blogs.map(({ component, ...meta }) => meta)
 
   return {

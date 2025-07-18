@@ -94,11 +94,11 @@ const categoriesObj = t('stories.categories', { returnObjects: true })
   )
 }
 
-export async function getStaticProps({ locale }) {
-  return {
-    props: {
-      stories: (await getAllStories(locale)).map(({ component, ...meta }) => meta),
-      ...(await serverSideTranslations(locale, ['common'])),
-    },
-  }
-}
+// export async function getStaticProps({ locale }) {
+//   return {
+//     props: {
+//       stories: (await getAllStories(locale)).map(({ component, ...meta }) => meta),
+//       ...(await serverSideTranslations(locale, ['common'])),
+//     },
+//   }
+// }
