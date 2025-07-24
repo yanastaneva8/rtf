@@ -4,7 +4,7 @@ import path from 'path'
 
 export async function loadBlogContent(slug, locale) {
   try {
-    const mdxModule = await import(`../pages/blog/${slug}/content.${locale}.mdx`)
+    // const mdxModule = await import(`../pages/blog/${slug}/content.${locale}.mdx`)
     return {
       meta: mdxModule.meta,
       component: mdxModule.default,
@@ -16,7 +16,7 @@ export async function loadBlogContent(slug, locale) {
 }
 
 export async function getAllSlugs() {
-  const blogDir = path.join(process.cwd(), 'src/pages/blog')
+  // const blogDir = path.join(process.cwd(), 'src/pages/blog')
   const entries = await fs.promises.readdir(blogDir, { withFileTypes: true })
 
   return entries

@@ -20,7 +20,7 @@ export async function importBlog(slug, locale) {
 }
 
 export async function getAllBlogs(locale = 'en') {
-  const blogDir = path.join(process.cwd(), 'src/pages/blog')
+  // const blogDir = path.join(process.cwd(), 'src/pages/blog')
   const entries = await fs.readdir(blogDir, { withFileTypes: true })
 
   const slugs = entries.filter((e) => e.isDirectory()).map((e) => e.name)
