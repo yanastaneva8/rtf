@@ -18,7 +18,7 @@ export function Blog({ blog }) {
   return (
     <div className="md:grid md:grid-cols-4 md:items-baseline">
       <Card as="div" className="md:col-span-3">
-        <Card.Title href={`/blog/${blog.locale}/${blog.slug}`}>
+        <Card.Title href={`/blog/${blog.slug}`}>
           {blog.title}
         </Card.Title>
         <Card.Eyebrow

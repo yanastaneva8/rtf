@@ -1,7 +1,7 @@
 {
   "home": {
-    "title": "freebirth.",
-    "description": "Free mind, free body, free soul. "
+    "title": "Freebirth.",
+    "description": "Reclaiming life initiative."
   },
   "about": {
     "title": "About",
@@ -20,7 +20,7 @@
   },
   "stories":{
 "title": "Stories",
-"description": "Personal stories.",
+"description": "Personal stories. Told as they were felt. No names, no dates. Just the pure experiences. Choose a category below.",
 "categories": 
     { "dream-births":"Dream Births",
     "lessons": "Transformative Births",

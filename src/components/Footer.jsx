@@ -26,13 +26,13 @@ export function Footer({locale}) {
             <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
               <div className="flex gap-6 text-sm font-medium text-zinc-800 dark:text-zinc-200">
                 <NavLink href="/about">{t('about.title')}</NavLink>
-                <NavLink href="/blog">{t('blog.title')}</NavLink>
+                {/* <NavLink href="/blog">{t('blog.title')}</NavLink> */}
                 <NavLink href="/stories">{t('stories.title')}</NavLink>
-                <NavLink href="/resources">{t('resources.title')}</NavLink>
+                {/* <NavLink href="/resources">{t('resources.title')}</NavLink> */}
                 
               </div>
               <p className="text-sm text-zinc-400 dark:text-zinc-500">
-                &copy; {new Date().getFullYear()} freebirth. All rights
+                &copy; {new Date().getFullYear()} Freebirth. All rights
                 reserved.
               </p>
             </div>

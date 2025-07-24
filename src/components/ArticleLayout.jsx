@@ -26,7 +26,7 @@ export function ArticleLayout({
   isRssFeed = false,
   previousPathname,
 }) {
-  const { t } = useTranslation('common') // ✅ 'common' namespace from your JSON files
+  // const { t } = useTranslation('common') // ✅ 'common' namespace from your JSON files
     let router
   if (typeof window !== 'undefined') {
     router = useRouter()
