@@ -12,7 +12,7 @@ import {
 } from '@/components/SocialIcons'
 
 const anna =
-'https://i.ibb.co/W4qTVfG8/a.jpg'
+'https://i.ibb.co/B500VbsD/a.jpg'
 const yana =
 'https://i.ibb.co/67jXvhfv/y.jpg'
 
