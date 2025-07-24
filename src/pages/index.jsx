@@ -27,7 +27,7 @@ const autumn =
 import { formatDate } from '@/lib/formatDate'
 import { generateRssFeed } from '@/lib/generateRssFeed'
 import { useTranslation } from 'next-i18next'
-import { getAllBlogs } from '@/lib/getAllBlogs'
+// import { getAllBlogs } from '@/lib/getAllBlogs'
 import {useRouter} from 'next/router'
 
 function MailIcon(props) {
@@ -98,8 +98,8 @@ function Newsletter() {
         <input
           type="email"
           name="email_address"
-          placeholder="email"
-          aria-label="email"
+          placeholder="Email"
+          aria-label="Email"
           required
           className="min-w-0 flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white px-3 py-[calc(theme(spacing.2)-1px)] shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-teal-500 focus:outline-none focus:ring-4 focus:ring-teal-500/10 dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-teal-400 dark:focus:ring-teal-400/10 sm:text-sm"
         />
@@ -185,11 +185,11 @@ export default function Home({ blog }) {
       <Photos />
       <Container className="mt-24 md:mt-28">
         <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
-          <div className="flex flex-col gap-16">
+          {/* <div className="flex flex-col gap-16">
             {blog.map((article) => (
               <Article key={article.slug} article={article} />
             ))}
-          </div>
+          </div> */}
           <div className="space-y-10 lg:pl-16 xl:pl-24">
             <Newsletter />
           </div>
@@ -206,10 +206,7 @@ export async function getStaticProps({locale}) {
 
   return {
  props: {
-      ...(await serverSideTranslations(locale, ['common'])),
-      blog: (await getAllBlogs())
-        .slice(0, 4)
-        .map(({ component, ...meta }) => meta),
+      ...(await serverSideTranslations(locale, ['common']))
     },
   }
 }
