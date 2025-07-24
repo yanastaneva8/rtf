@@ -27,23 +27,23 @@ export async function generateRssFeed() {
     },
   })
 
-  for (let article of articles) {
-    let url = `${siteUrl}/articles/${article.slug}`
-    let html = ReactDOMServer.renderToStaticMarkup(
-      <article.component isRssFeed />
-    )
+  // for (let article of articles) {
+  //   let url = `${siteUrl}/articles/${article.slug}`
+  //   let html = ReactDOMServer.renderToStaticMarkup(
+  //     <article.component isRssFeed />
+  //   )
 
-    feed.addItem({
-      title: article.title,
-      id: url,
-      link: url,
-      description: article.description,
-      content: html,
-      author: [author],
-      contributor: [author],
-      date: new Date(article.date),
-    })
-  }
+  //   feed.addItem({
+  //     title: article.title,
+  //     id: url,
+  //     link: url,
+  //     description: article.description,
+  //     content: html,
+  //     author: [author],
+  //     contributor: [author],
+  //     date: new Date(article.date),
+  //   })
+  // }
 
   await mkdir('./public/rss', { recursive: true })
   await Promise.all([
