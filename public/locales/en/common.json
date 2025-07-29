@@ -3,6 +3,16 @@
     "title": "Freebirth.",
     "description": "Reclaiming life initiative."
   },
+  "menu":{
+    "title": "Menu",
+    "nav": "Navigation"
+  },
+  "subscribe":{
+"title": "Subscribe",
+"description": "Get notified when we publish something new and unsubscribe at any time.",
+"button": "Join",
+"email": "Email"
+  },
   "about": {
     "title": "About",
     "description": "We are Anna and Yana",
