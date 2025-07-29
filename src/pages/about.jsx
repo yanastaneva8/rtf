@@ -76,57 +76,51 @@ const paragraphIds = ['anna', 'yana']
 }
 
 export default function About({}) {
-    const {t} = useTranslation('common')
+  const { t } = useTranslation('common')
   return (
     <>
       <Head>
         <title>{t('about.title')}</title>
-        <meta
-          name="description"
-          content={t('about.description')}
-        />
+        <meta name="description" content={t('about.description')} />
       </Head>
       <Container className="mt-16 sm:mt-32">
-        <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
-          <div className="lg:pl-20">
-<Photos />
-          </div>
-          <div className="lg:order-first lg:row-span-2">
+        <div className="grid grid-cols-2 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
+          {/* Text container: occupies first column on mobile */}
+          <div className="col-span-2 lg:col-span-1 lg:order-first">
             <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-    {t('about.title')}
+              {t('about.title')}
             </h1>
             <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
-              <p>
-            {t('about.p1')}
-              </p>
-              <p>
-            {t('about.p2')}
-              </p>
-              
+              <p>{t('about.p1')}</p>
+              <p>{t('about.p2')}</p>
               <div id="anna">
-                 <p className="text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-    {t('about.t-anna')}
-            </p>
-            {t('about.p-anna')}
+                <p className="text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
+                  {t('about.t-anna')}
+                </p>
+                {t('about.p-anna')}
               </div>
               <div id="yana">
-                 <p className="text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-    {t('about.t-yana')}
-            </p>
-            {t('about.p-yana')}
+                <p className="text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
+                  {t('about.t-yana')}
+                </p>
+                {t('about.p-yana')}
               </div>
             </div>
           </div>
-          <div className="lg:pl-20">
+          {/* Photos container: occupies second column on mobile */}
+          <div className="col-span-2 lg:col-span-1 lg:pl-20">
+            <Photos />
+          </div>
+          {/* Social links: spans both columns */}
+          <div className="col-span-2 lg:pl-20">
             <ul role="list">
-
               <SocialLink href="https://instagram.com/freebirth.bg" icon={InstagramIcon} className="mt-4">
                 Follow on Instagram
               </SocialLink>
-                            <SocialLink href="https://threads.com/freebirth.bg" icon={ThreadsIcon} className="mt-4">
+              <SocialLink href="https://threads.com/freebirth.bg" icon={ThreadsIcon} className="mt-4">
                 Follow on Threads
               </SocialLink>
- <SocialLink href="https://facebook.com/freebirth.bg" icon={FacebookIcon} className="mt-4">
+              <SocialLink href="https://facebook.com/freebirth.bg" icon={FacebookIcon} className="mt-4">
                 Follow on Facebook
               </SocialLink>
               <SocialLink
