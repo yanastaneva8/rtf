@@ -160,7 +160,7 @@ export default function Home({ blog }) {
               icon={ThreadsIcon}
             />
             <SocialLink
-              href="https://facebook.com/freebirth.bg"
+              href="https://www.facebook.com/freebirthbulgaria"
               aria-label="follow on Facebook"
               icon={FacebookIcon}
             />

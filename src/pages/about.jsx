@@ -120,7 +120,7 @@ export default function About({}) {
               <SocialLink href="https://threads.com/freebirth.bg" icon={ThreadsIcon} className="mt-4">
                 Follow on Threads
               </SocialLink>
-              <SocialLink href="https://facebook.com/freebirth.bg" icon={FacebookIcon} className="mt-4">
+              <SocialLink href="https://www.facebook.com/freebirthbulgaria" icon={FacebookIcon} className="mt-4">
                 Follow on Facebook
               </SocialLink>
               <SocialLink
