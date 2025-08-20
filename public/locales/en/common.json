@@ -51,5 +51,8 @@
     "products_description": "Useful products",
     "videos": "Videos",
     "videos_description": "Useful videos"
-  }
+  },
+  "gdpr": {
+  "title": "Legal"
+}
 }

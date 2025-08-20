@@ -84,43 +84,78 @@ export default function About({}) {
         <meta name="description" content={t('about.description')} />
       </Head>
       <Container className="mt-16 sm:mt-32">
-        <div className="grid grid-cols-2 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
-          {/* Text container: occupies first column on mobile */}
-          <div className="col-span-2 lg:col-span-1 lg:order-first">
+        <div className="space-y-16">
+          {/* Main Title and Intro */}
+          <div>
             <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
               {t('about.title')}
             </h1>
             <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
               <p>{t('about.p1')}</p>
               <p>{t('about.p2')}</p>
-              <div id="anna">
-                <p className="text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-                  {t('about.t-anna')}
-                </p>
-                {t('about.p-anna')}
-              </div>
-              <div id="yana">
-                <p className="text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-                  {t('about.t-yana')}
-                </p>
-                {t('about.p-yana')}
-              </div>
             </div>
           </div>
-          {/* Photos container: occupies second column on mobile */}
-          <div className="col-span-2 lg:col-span-1 lg:pl-20">
-            <Photos />
+
+          {/* Anna Section */}
+          <div id="anna" className="grid grid-cols-1 sm:grid-cols-2 gap-8 items-center">
+            <div>
+              <h2 className="text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100">
+                {t('about.t-anna')}
+              </h2>
+              <p className="mt-4 text-base text-zinc-600 dark:text-zinc-400">
+                {t('about.p-anna')}
+              </p>
+            </div>
+            <div className="flex justify-center">
+              <img
+                src={anna}
+                alt="Photo of Anna"
+                className="w-full h-full object-cover"
+              />
+            </div>
           </div>
-          {/* Social links: spans both columns */}
-          <div className="col-span-2 lg:pl-20">
+
+          {/* Yana Section */}
+          <div id="yana" className="grid grid-cols-1 sm:grid-cols-2 gap-8 items-center">
+            <div>
+              <h2 className="text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100">
+                {t('about.t-yana')}
+              </h2>
+              <p className="mt-4 text-base text-zinc-600 dark:text-zinc-400">
+                {t('about.p-yana')}
+              </p>
+            </div>
+            <div className="flex justify-center">
+              <img
+                src={yana}
+                alt="Photo of Yana"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+
+          {/* Social Links can remain below or adjust as needed */}
+          <div className="lg:pl-20">
             <ul role="list">
-              <SocialLink href="https://instagram.com/freebirth.bg" icon={InstagramIcon} className="mt-4">
+              <SocialLink
+                href="https://instagram.com/freebirth.bg"
+                icon={InstagramIcon}
+                className="mt-4"
+              >
                 Follow on Instagram
               </SocialLink>
-              <SocialLink href="https://threads.com/freebirth.bg" icon={ThreadsIcon} className="mt-4">
+              <SocialLink
+                href="https://threads.com/freebirth.bg"
+                icon={ThreadsIcon}
+                className="mt-4"
+              >
                 Follow on Threads
               </SocialLink>
-              <SocialLink href="https://www.facebook.com/freebirthbulgaria" icon={FacebookIcon} className="mt-4">
+              <SocialLink
+                href="https://www.facebook.com/freebirthbulgaria"
+                icon={FacebookIcon}
+                className="mt-4"
+              >
                 Follow on Facebook
               </SocialLink>
               <SocialLink

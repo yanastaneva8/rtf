@@ -28,6 +28,8 @@ export function Footer({locale}) {
                 <NavLink href="/about">{t('about.title')}</NavLink>
                 {/* <NavLink href="/blog">{t('blog.title')}</NavLink> */}
                 <NavLink href="/stories">{t('stories.title')}</NavLink>
+                <NavLink href="/gdpr">{t('gdpr.title')}</NavLink>
+
                 {/* <NavLink href="/resources">{t('resources.title')}</NavLink> */}
                 
               </div>

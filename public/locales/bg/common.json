@@ -52,5 +52,8 @@
     "products_description": "Полезни продукти",
         "videos": "Видеа",
     "videos_description": "Полезни видеа"
-  }
+  },
+"gdpr": {
+  "title": "Правна информация"
+}
 }
